@@ -12,6 +12,7 @@ import { fetchSocials } from '../utils/fetchSocials'
 import { fetchExperiences } from '../utils/fetchExperience'
 import { fetchPageInfo } from '../utils/fetchPageInfo'
 import Link from 'next/link'
+import React from 'react'
 
 
 type Props = {
