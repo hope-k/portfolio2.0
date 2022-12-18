@@ -53,13 +53,13 @@ const ExperienceCard = ({ exp }: Props) => {
                     ))}
 
                 </div>
-                <p className='uppercase py-5 text-gray-300'>
+                <div className='uppercase py-5 text-gray-300'>
                     {new Date(exp?.dateStarted).toDateString()}
                     -
                     {
                         exp?.isCurrent ? 'Present' : new Date(exp?.dateEnded).toDateString()
                     }
-                </p>
+                </div>
                 <ul className='list-disc space-y-4 ml-5 text-sm'>
                     {exp?.points?.map((point, i) => (
                         <li key={i}>{point}</li>

@@ -36,7 +36,7 @@ const Projects = ({ projects }: Props) => {
             </motion.div>
             <motion.div className=" scrollbar-thumb-rounded-full scrollbar-thin scrollbar-track-yellow-100/20 scrollbar-thumb-[teal]/80 relative w-full  flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory ">
                 {/*`projects`*/}
-                {projects.map((project, index) => (
+                {projects?.map((project, index) => (
                     <motion.div key={index} className='w-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-28 xl:p-44 h-[screen] '>
                         {/*image*/}
                         <motion.div
@@ -65,7 +65,7 @@ const Projects = ({ projects }: Props) => {
                         <div className='px-0 space-y-10 md:px-10 max-w-5xl '>
                             <div className='xl:text-2xl text-[1.3rem] font-semibold text-center whitespace-nowrap capitalize'>
                                 <span className=' underline decoration-[#FA0]/50 '>
-                                    Case Study {index + 1} of {projects.length}:
+                                    Case Study {index + 1} of {projects?.length}:
                                 </span>
                                 <span className='text'>{" " + project?.title}</span>
 
