@@ -13,7 +13,7 @@ type Props = {
 
 const Hero = ({ pageInfo }: Props) => {
     const [text, count] = useTypewriter({
-        words: [`Hi My Name Is ${pageInfo?.name}`, 'Fullstack Developer.tsx', "< ExplorePortfolio />"],
+        words: [`Hi My Name Is ${pageInfo?.name}`, 'Fullstack Developer.tsx', "Frontend Developer", 'Backend Developer', 'Mobile Developer'],
         loop: true,
         delaySpeed: 2000,
     })
@@ -57,7 +57,7 @@ const Hero = ({ pageInfo }: Props) => {
             </motion.h2>
 
             <motion.div layout='position' className='z-20 relative'>
-                <motion.div className='text-5xl lg:text-6xl font-semibold px-10 '>
+                <motion.div className='text-5xl lg:text-6xl font-semibold px-10 text-left '>
                     <motion.span className='mr-3 '>{text}</motion.span>
                     <Cursor cursorColor='teal' />
                 </motion.div>

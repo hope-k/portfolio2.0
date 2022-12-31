@@ -28,14 +28,14 @@ const Contact = ({pageInfo}: Props) => {
             <motion.h3
                 initial={comeUp.initial}
                 whileInView={comeUp.whileInView}
-                className='absolute top-16 xl:top-10 uppercase tracking-[20px] text-xl font-light text-teal-500'
+                className='absolute top-10  uppercase tracking-[20px] text-xl font-light text-teal-500'
             >
                 Contact
             </motion.h3>
             <div className='flex flex-col space-y-10 px-10'>
 
-                <div className='poiret text-xl font-light text-center whitespace-[wrap] text-gray-400 tracking-[2px]'>
-                    <span>I have got just what you need{' '}</span>
+                <div className='poiret text-lg font-light text-center whitespace-[wrap] text-gray-400 tracking-[2px]'>
+                    <span className=''>I have got just what you need{' '}</span>
                     <span className='underline decoration-[#FA0]/50'>
                         Lets Talk.
                     </span>

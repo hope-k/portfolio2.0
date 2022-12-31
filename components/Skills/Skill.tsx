@@ -32,7 +32,7 @@ const Skill = ({ directionLeft, skill }: Props) => {
                         duration: .1
                     }
                 }}
-
+                layout='position'
                 className='group rounded-full  p-1 border border-gray-500 w-16 h-16 xl:w-24 xl:h-24 flex relative cursor-pointer z-10  overflow-hidden items-center justify-center'
             >
                 <Image
@@ -44,7 +44,7 @@ const Skill = ({ directionLeft, skill }: Props) => {
                 />
                 <div className='rounded-full z-0 w-16 h-16 xl:w-24 xl:h-24 absolute opacity-0 group-hover:opacity-80 transition-all duration-300 ease-in-out group-hover:bg-white'>
                     <div className='items-center h-full flex justify-center'>
-                        <p className='uppercase text-xs font-bold opacity-100 text-black'>{skill?.title}</p>
+                        <p className='uppercase text-xs font-bold opacity-100 text-black whitespace-pre-line'>{skill?.title}</p>
                     </div>
                 </div>
             </motion.div>

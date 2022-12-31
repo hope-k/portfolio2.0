@@ -18,7 +18,7 @@ const Projects = ({ projects }: Props) => {
             initial={pageTransition.initial}
             whileInView={pageTransition.whileInView}
             id='projects'
-            className='scrollbar h-screen snap-center relative flex flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center '
+            className='scrollbar h-screen snap-center relative flex flex-col text-left md:flex-row max-w-full justify-evenly items-center  '
         >
             <div className="z-0 w-screen absolute top-[30%] bg-[teal]/10 left-0 h-[500px] -skew-y-[12deg]"></div>
             <motion.div
@@ -62,17 +62,18 @@ const Projects = ({ projects }: Props) => {
                                 className='rounded-md object-cover'
                             />
                         </motion.div>
-                        <div className='px-0 space-y-10 md:px-10 max-w-5xl '>
-                            <div className='xl:text-2xl text-[1.3rem] font-semibold text-center whitespace-nowrap capitalize'>
+                        <div className='px-0 space-y-3 md:space-y-10 md:px-10 max-w-5xl '>
+                            <div className='xl:text-2xl text-[1.1rem] md:t font-semibold text-center whitespace-nowrap capitalize'>
                                 <span className=' underline decoration-[#FA0]/50 '>
                                     Case Study {index + 1} of {projects?.length}:
                                 </span>
                                 <span className='text'>{" " + project?.title}</span>
-
                             </div>
-                            <p className='text-base text-start md:text-left lg:max-w-3xl'>
+
+                            <p className='font-light text-sm md:text-base text-start md:text-left lg:max-w-3xl'>
                                 {project?.summary}
                             </p>
+                            
                         </div>
                     </motion.div>
                 ))

@@ -51,7 +51,7 @@ const About = ({pageInfo}: Props) => {
                         alt='Hope-K Photo'
                         src='/me.jpg'
                         layout='fill'
-                        className='object-cover rounded-full md:rounded-lg'
+                        className='object-cover border border-teal-500 rounded-full md:rounded-lg'
 
                     />
                 </motion.div>
@@ -60,7 +60,7 @@ const About = ({pageInfo}: Props) => {
                     <motion.div className='poiret tracking-wide text-2xl font-semibold whitespace-nowrap'>
                         Here is a <span className='underline decoration-[teal]'>little</span> background
                     </motion.div>
-                    <motion.p className='text-base max-w-xl'>
+                    <motion.p className='text-base max-w-xl text-left'>
                         {pageInfo?.backgroundInfo}
                     </motion.p>
                 </div>

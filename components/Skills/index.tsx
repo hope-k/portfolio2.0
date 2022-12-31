@@ -15,6 +15,7 @@ const Skills = ({ skills }: Props) => {
       initial={pageTransition.initial}
       whileInView={pageTransition.whileInView}
       id='skills'
+      layout='position'
       className='snap-center xl:space-y-0 mx-auto items-center justify-center min-h-screen flex relative flex-col text-center md:text-left xl:flex-row max-w-[2000px] px-10 flex-shrink-0'>
       <motion.h3
         initial={comeUp.initial}
@@ -26,7 +27,7 @@ const Skills = ({ skills }: Props) => {
         Hover over a skill
       </h3>
 
-      <div className='grid grid-cols-4 gap-5 '>
+      <motion.div layout='position' className='grid grid-cols-4 gap-5 '>
         {
           skills?.slice(0, skills?.length / 2).map((skill, index) => (
             <Skill key={index} skill={skill} />
@@ -37,7 +38,7 @@ const Skills = ({ skills }: Props) => {
             <Skill key={index} skill={skill} directionLeft/>
           ))
         }
-      </div>
+      </motion.div>
 
     </motion.section>
   )
