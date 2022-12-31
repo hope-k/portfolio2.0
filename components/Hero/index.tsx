@@ -46,20 +46,20 @@ const Hero = ({pageInfo}: Props) => {
 
     }
     return (
-        <section id='hero' className=' snap-start h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden relative  '>
+        <section id='hero' className=' snap-center h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden relative  '>
             <div className='heroBg'></div>
             <BackgroundCircle />
             <div className=' h-28 w-28 relative '>
                 <Image width={128} height={128} alt='Hope-K Photo' src={urlFor(pageInfo?.heroImage)} className='rounded-full mx-auto' />
             </div>
-            <div className='z-20'>
-                <h2 className=' font-light text-sm uppercase text-gray-500 pb-2 tracking-[15px] px-5 whitespace-nowrap'>
+            <motion.div className='z-20 '>
+                <h2 className=' font-light text-sm uppercase text-gray-500 pb-2 tracking-[12px] md:tracking-[14px] px-5 whitespace-nowrap'>
                     {pageInfo?.role}
                 </h2>
-                <div className='text-5xl lg:text-6xl font-semibold px-10 '>
+                <motion.div layout='position'  className='text-5xl lg:text-6xl font-semibold px-10 '>
                     <motion.span layout className='mr-3 '>{text}</motion.span>
                     <Cursor cursorColor='teal' />
-                </div>
+                </motion.div>
                 <motion.div
                     variants={{
                         show: {
@@ -90,7 +90,7 @@ const Hero = ({pageInfo}: Props) => {
                         <motion.button variants={buttonVariant} className='hero-button'>Projects</motion.button>
                     </Link>
                 </motion.div>
-            </div>
+            </motion.div>
         </section>
     )
 }
