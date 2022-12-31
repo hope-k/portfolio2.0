@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import BackgroundCircle from '../BackgroundCircle'
 import Image from 'next/image'
@@ -13,7 +13,7 @@ type Props = {
 
 const Hero = ({ pageInfo }: Props) => {
     const [text, count] = useTypewriter({
-        words: [`Hi My Name Is ${pageInfo?.name}`, 'Fullstack Developer.tsx', "Frontend Developer", 'Backend Developer', 'Mobile Developer'],
+        words: [`Hi My Name Is ${pageInfo?.name}`, 'Fullstack Developer.tsx', "Frontend Developer.jsx", 'Backend Developer.js', 'Mobile Developer.dart'],
         loop: true,
         delaySpeed: 2000,
     })
@@ -42,9 +42,9 @@ const Hero = ({ pageInfo }: Props) => {
         }
 
 
-
-
     }
+
+
     return (
         <motion.section layout='size' id='hero' className='px-10 snap-center h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden relative  '>
             <div className='heroBg'></div>
@@ -94,6 +94,7 @@ const Hero = ({ pageInfo }: Props) => {
                     <motion.button variants={buttonVariant} className='hero-button'>Projects</motion.button>
                 </Link>
             </motion.div>
+        
         </motion.section>
     )
 }
