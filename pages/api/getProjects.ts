@@ -5,9 +5,11 @@ import { Project } from '../../typings'
 
 
 const query = groq`
-    *[_type == "project"]{
+    *[_type == "project"]|order(createdAt desc) {
         ...,
         technologies[]->
+        //sort by date created
+        
     }
 `
 

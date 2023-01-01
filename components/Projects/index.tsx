@@ -27,7 +27,7 @@ const Projects = ({ projects }: Props) => {
                 className=' absolute top-[3.5rem] xl:top-4 uppercase tracking-[20px] text-xl font-light text-teal-500'
             >
                 Projects
-                <div className='flex justify-center absolute w-full h-8 md:h-14'>
+                <div className='flex justify-center absolute w-full h-8 md:h-10'>
                     <Lottie
                         animationData={mouseScroll}
                         className='rotate-90'
@@ -37,7 +37,7 @@ const Projects = ({ projects }: Props) => {
             <motion.div className=" scrollbar-thumb-rounded-full scrollbar-thin scrollbar-track-yellow-100/20 scrollbar-thumb-[teal]/80 relative w-full  flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory ">
                 {/*`projects`*/}
                 {projects?.map((project, index) => (
-                    <motion.div key={index} className='w-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-28 xl:p-44 h-[screen] '>
+                    <motion.div key={index} className='w-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-[50px] md:p-28 xl:p-44 h-[screen] '>
                         {/*image*/}
                         <motion.div
                             initial={{
@@ -53,8 +53,8 @@ const Projects = ({ projects }: Props) => {
 
                                 }
                             }}
-                            viewport={{ once: true }}
-                            className='relative w-[270px] h-[135px] lg:h-[300px] lg:w-[500px] mt-3 rounded-md '>
+                            viewport={{ once: false }}
+                            className='relative w-[270px] h-[140px] lg:h-[300px] lg:w-[560px] mt-3 rounded-md '>
                             <Image
                                 src={urlFor(project?.image)}
                                 alt={project?.title}

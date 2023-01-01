@@ -42,6 +42,7 @@ const About = ({pageInfo}: Props) => {
                             damping: 20,
                             mass: 0.2,
 
+                            
                         }
                     }}
                     className='xl:w-[300px] xl:h-[350px]  md:w-60 md:h-60 relative flex-shrink-0 md:mb-0 w-40 h-40 md:my-0 top-14 md:top-0'>
