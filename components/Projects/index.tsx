@@ -7,6 +7,7 @@ import mouseScroll from '../../animations/lottie/mouseScroll.json';
 import Lottie from 'lottie-react'
 import { Project } from '../../typings'
 import { urlFor } from '../../sanity'
+import Link from 'next/link'
 
 type Props = {
     projects: Project[]
@@ -39,41 +40,46 @@ const Projects = ({ projects }: Props) => {
                 {projects?.map((project, index) => (
                     <motion.div key={index} className='w-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-[50px] md:p-28 xl:p-44 h-[screen] '>
                         {/*image*/}
-                        <motion.div
-                            initial={{
-                                y: -60,
-                                opacity: 0
-                            }}
-                            whileInView={{
-                                y: 0,
-                                opacity: 1,
-                                transition: {
-                                    duration: 1.8,
-                                    type: 'spring',
+                        <Link target={'_blank'} href={project?.projectUrl}>
 
-                                }
-                            }}
-                            viewport={{ once: false }}
-                            className='relative w-[270px] h-[144px] lg:h-[300px] lg:w-[560px] mt-3 rounded-md '>
-                            <Image
-                                src={urlFor(project?.image)}
-                                alt={project?.title}
-                                fill
-                                className='rounded-md object-cover'
-                            />
-                        </motion.div>
+                            <motion.div
+                                initial={{
+                                    y: -60,
+                                    opacity: 0
+                                }}
+                                whileInView={{
+                                    y: 0,
+                                    opacity: 1,
+                                    transition: {
+                                        duration: 1.8,
+                                        type: 'spring',
+
+                                    }
+                                }}
+                                viewport={{ once: false }}
+                                className='relative w-[270px] h-[140px] lg:h-[300px] lg:w-[560px] mt-3 rounded-md '>
+                                <Image
+                                    src={urlFor(project?.image)}
+                                    alt={project?.title}
+                                    fill
+                                    className='rounded-md object-cover'
+                                />
+                            </motion.div>
+                        </Link>
                         <div className='px-0 space-y-3 md:space-y-10 md:px-10 max-w-5xl '>
-                            <div className='xl:text-2xl text-[1.1rem] md:t font-semibold text-center whitespace-nowrap capitalize'>
-                                <span className=' underline decoration-[#FA0]/50 '>
-                                    Case Study {index + 1} of {projects?.length}:
-                                </span>
-                                <span className='text'>{" " + project?.title}</span>
-                            </div>
+                            <Link target={'_blank'} href={project?.projectUrl}>
+                                <div className='xl:text-2xl text-[1.1rem] md:t font-semibold text-center whitespace-nowrap capitalize'>
+                                    <span className=' border-[#FA0]/60 border rounded-md p-2'>
+                                        Case Study {index + 1} of {projects?.length}:
+                                    </span>
+                                    <span className='text'>{" " + project?.title}</span>
+                                </div>
+                            </Link>
 
                             <p className='font-light text-sm md:text-base text-start md:text-left lg:max-w-3xl'>
                                 {project?.summary}
                             </p>
-                            
+
                         </div>
                     </motion.div>
                 ))
