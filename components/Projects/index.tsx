@@ -54,7 +54,7 @@ const Projects = ({ projects }: Props) => {
                                 }
                             }}
                             viewport={{ once: false }}
-                            className='relative w-[270px] h-[140px] lg:h-[300px] lg:w-[560px] mt-3 rounded-md '>
+                            className='relative w-[270px] h-[144px] lg:h-[300px] lg:w-[560px] mt-3 rounded-md '>
                             <Image
                                 src={urlFor(project?.image)}
                                 alt={project?.title}
