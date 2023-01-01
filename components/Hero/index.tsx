@@ -53,7 +53,8 @@ const Hero = ({ pageInfo }: Props) => {
             <div className='heroBg'></div>
             <BackgroundCircle />
             <motion.div layout='position' className=' h-28 w-28 relative '>
-                <LazyLoadImage effect="blur"
+                <LazyLoadImage
+                    effect="blur"
                     width={128}
                     height={128}
                     alt='Hope-K Photo'

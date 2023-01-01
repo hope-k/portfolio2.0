@@ -4,6 +4,9 @@ import Image from 'next/image'
 import { comeUp } from '../../animations/comeUp'
 import { pageTransition } from '../../animations/pageTransition'
 import { PageInfo } from '../../typings'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import { urlFor } from '../../sanity'
 type Props = {
     pageInfo: PageInfo
 }
@@ -48,10 +51,10 @@ const About = ({pageInfo}: Props) => {
                     className='xl:w-[300px] xl:h-[350px]  md:w-60 md:h-60 relative flex-shrink-0 md:mb-0 w-40 h-40 md:my-0 top-14 md:top-0'>
 
 
-                    <Image
+                    <LazyLoadImage
                         alt='Hope-K Photo'
-                        src='/me.jpg'
-                        layout='fill'
+                        src={urlFor(pageInfo?.heroImage)}
+                        effect='blur'
                         className='object-cover border border-teal-500 rounded-full md:rounded-lg'
 
                     />
