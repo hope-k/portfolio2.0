@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import BackgroundCircle from '../BackgroundCircle'
 import Image from 'next/image'
@@ -6,6 +6,9 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { PageInfo } from '../../typings'
 import { urlFor } from '../../sanity'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 
 type Props = {
     pageInfo: PageInfo
@@ -50,7 +53,13 @@ const Hero = ({ pageInfo }: Props) => {
             <div className='heroBg'></div>
             <BackgroundCircle />
             <motion.div layout='position' className=' h-28 w-28 relative '>
-                <Image width={128} height={128} alt='Hope-K Photo' src={urlFor(pageInfo?.heroImage)} className='rounded-full mx-auto' />
+                <LazyLoadImage effect="blur"
+                    width={128}
+                    height={128}
+                    alt='Hope-K Photo'
+                    src={urlFor(pageInfo?.heroImage)}
+                    className='rounded-full mx-auto'
+                />
             </motion.div>
             <motion.h2 layout className='z-20 relative font-light text-sm uppercase text-gray-500 pb-2 tracking-[12px] md:tracking-[14px] px-5 whitespace-nowrap'>
                 {pageInfo?.role}
@@ -94,7 +103,7 @@ const Hero = ({ pageInfo }: Props) => {
                     <motion.button variants={buttonVariant} className='hero-button'>Projects</motion.button>
                 </Link>
             </motion.div>
-        
+
         </motion.section>
     )
 }
