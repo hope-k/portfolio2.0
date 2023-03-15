@@ -74,7 +74,9 @@ function Header({ socials }: Props) {
           animate='show'
           className='flex items-center flex-row cursor-pointer '
         >
-          <motion.div variants={socialRightVariant}>
+          <motion.div
+            onClick={() => window.location.href = '#contact'}
+            variants={socialRightVariant}>
             <SocialIcon network='email' fgColor='gray' bgColor='transparent' />
           </motion.div>
         </motion.div>
