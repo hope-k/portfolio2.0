@@ -19,7 +19,7 @@ interface PageInfo extends SanityBody {
     phoneNumber: string;
     address: string;
     alternativePhoneNumber: string;
-    profilePic: Image;
+    profileImage: Image;
     backgroundInfo: string;
     heroImage: Image;
     name: string;   

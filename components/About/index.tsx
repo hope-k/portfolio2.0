@@ -53,7 +53,7 @@ const About = ({pageInfo}: Props) => {
 
                     <LazyLoadImage
                         alt='Hope-K Photo'
-                        src={urlFor(pageInfo?.heroImage)}
+                        src={urlFor(pageInfo?.profileImage)}
                         effect='blur'
                         className='object-cover border border-teal-500 rounded-full md:rounded-lg'
 
