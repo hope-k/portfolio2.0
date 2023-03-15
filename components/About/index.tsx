@@ -25,7 +25,7 @@ const About = ({pageInfo}: Props) => {
                 <motion.h3
                     initial={comeUp.initial}
                     whileInView={comeUp.whileInView}
-                    className='text-teal-500 absolute xl:top-24 top-16 uppercase tracking-[20px] text-xl font-light '
+                    className='text-teal-500 absolute xl:top-24 top-[3rem] uppercase tracking-[20px] text-xl font-light '
                 >
                     About
                 </motion.h3>
@@ -64,7 +64,7 @@ const About = ({pageInfo}: Props) => {
                     <motion.div className='mb-2 poiret tracking-wide text-2xl font-semibold whitespace-nowrap'>
                         Here is a <span className='underline decoration-[teal]'>little</span> background
                     </motion.div>
-                    <motion.p className='text-base max-w-xl text-left'>
+                    <motion.p className='text-sm xl:text-base max-w-xl text-left'>
                         {pageInfo?.backgroundInfo}
                     </motion.p>
                 </div>
