@@ -19,7 +19,7 @@ const About = ({pageInfo}: Props) => {
                 initial={pageTransition.initial}
                 whileInView={pageTransition.whileInView}
                 id='about'
-                className=' w-full snap-center max-w-7xl mx-auto items-center justify-evenly px-10 md:flex-row  h-screen flex flex-col relative text-center md:text-left'
+                className='bg-[#dccb92] w-full snap-center items-center justify-evenly px-10 md:flex-row  h-screen flex flex-col relative text-center md:text-left'
             >
                 <div className='aboutBg'></div>
                 <motion.h3
@@ -48,7 +48,7 @@ const About = ({pageInfo}: Props) => {
                             
                         }
                     }}
-                    className='xl:w-[300px] xl:h-[350px]  md:w-60 md:h-60 relative flex-shrink-0 md:mb-0 w-40 h-40 md:my-0 top-14 md:top-0'>
+                    className=' xl:w-[300px] xl:h-[350px]  md:w-60 md:h-60 relative flex-shrink-0 md:mb-0 w-40 h-40 md:my-0 top-14 md:top-0'>
 
 
                     <LazyLoadImage
@@ -60,11 +60,11 @@ const About = ({pageInfo}: Props) => {
                     />
                 </motion.div>
 
-                <div className=' px-0 md:px-10 relative z-50 '>
+                <div className='px-0 md:p-10 relative z-50 text-black '>
                     <motion.div className='mb-2 poiret tracking-wide text-2xl font-semibold whitespace-nowrap'>
                         Here is a <span className='underline decoration-[teal]'>little</span> background
                     </motion.div>
-                    <motion.p className='text-sm xl:text-base max-w-xl text-left'>
+                    <motion.p className='text-sm xl:text-[1.2rem] tracking-tighter leading-6 max-w-xl text-left font-light '>
                         {pageInfo?.backgroundInfo}
                     </motion.p>
                 </div>

@@ -24,7 +24,7 @@ const Contact = ({pageInfo}: Props) => {
         window.location.href = `mailto:${formData.email}?subject=${formData.subject}&body=${formData.message}`
     }
     return (
-        <motion.section id='contact' className='h-screen snap-center relative flex flex-col text-center md:text-left items-center justify-evenly mx-auto max-w-7xl overflow-hidden'>
+        <motion.section id='contact' className=' h-screen snap-center relative flex flex-col text-center md:text-left items-center justify-evenly mx-auto max-w-7xl overflow-hidden'>
             <motion.h3
                 initial={comeUp.initial}
                 whileInView={comeUp.whileInView}

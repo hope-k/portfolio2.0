@@ -3,7 +3,6 @@ import { groq } from 'next-sanity'
 import { sanityClient } from '../../sanity'
 import { Experience } from '../../typings'
 
-
 const query = groq`
     *[_type == "experience"]{
         ...,
@@ -14,7 +13,6 @@ const query = groq`
 type resData = {
     experiences: Experience[]
 } 
-
 
 export default async function handler(
     req: NextApiRequest,

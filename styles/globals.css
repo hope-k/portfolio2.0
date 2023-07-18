@@ -6,11 +6,11 @@
 html, body {
   width: 100vw;
   height: 100%;
-  overflow: hidden;
 }
 
 * {
     scroll-behavior: smooth !important;
+
 
 }
 
@@ -35,12 +35,5 @@ html, body {
   height: 100%;
   width: 100vw;
 }
-.aboutBg {
-  background: linear-gradient(to right, #f2709c, #ff9472);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  width: 100vw;
-  height: 100%;
-  position: absolute;
-  filter: brightness(5%);
-}
+
 

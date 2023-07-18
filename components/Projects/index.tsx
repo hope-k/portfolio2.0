@@ -18,8 +18,9 @@ const Projects = ({ projects }: Props) => {
         <motion.section
             initial={pageTransition.initial}
             whileInView={pageTransition.whileInView}
+            viewport={{ once: true }}
             id='projects'
-            className='scrollbar h-screen snap-center relative flex flex-col text-left md:flex-row max-w-full justify-evenly items-center  '
+            className='bg-[#f4090959] scrollbar h-screen snap-center relative flex flex-col text-left md:flex-row max-w-full justify-evenly items-center w-full'
         >
             <div className="z-0 w-screen absolute top-[30%] bg-[teal]/10 left-0 h-[500px] -skew-y-[12deg]"></div>
             <motion.div
@@ -27,7 +28,7 @@ const Projects = ({ projects }: Props) => {
                 whileInView={comeUp.whileInView}
                 className=' absolute top-[3.5rem] xl:top-4 uppercase tracking-[20px] text-xl font-light text-teal-500'
             >
-                Projects
+                <span>Projects</span>
                 <div className='flex justify-center absolute w-full h-8 md:h-10'>
                     <Lottie
                         animationData={mouseScroll}
@@ -35,10 +36,10 @@ const Projects = ({ projects }: Props) => {
                     />
                 </div>
             </motion.div>
-            <motion.div className=" scrollbar-thumb-rounded-full scrollbar-thin scrollbar-track-yellow-100/20 scrollbar-thumb-[teal]/80 relative w-full  flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory ">
+            <motion.div className="top-20 md:top-0 scrollbar-thumb-rounded-full scrollbar-thin scrollbar-track-yellow-100/20 scrollbar-thumb-[teal]/80 relative w-full  flex overflow-x-scroll  snap-x snap-mandatory ">
                 {/*`projects`*/}
                 {projects?.map((project, index) => (
-                    <motion.div key={index} className='w-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-[50px] md:p-28 xl:p-44 h-[screen] '>
+                    <motion.div key={index} className='mx-auto w-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-[10px] md:p-28 h-[80%]'>
                         {/*image*/}
                         <Link target={'_blank'} href={project?.projectUrl}>
 
@@ -57,26 +58,26 @@ const Projects = ({ projects }: Props) => {
                                     }
                                 }}
                                 viewport={{ once: false }}
-                                className='relative w-[270px] h-[143px] lg:h-[300px] lg:w-[560px] mt-3 rounded-md '>
+                                className=' relative w-[270px] h-[143px] lg:h-[230px] lg:w-[460px] mt-[6rem] md:mt-12 rounded-md '>
                                 <Image
                                     src={urlFor(project?.image)}
                                     alt={project?.title}
                                     fill
-                                    className='rounded-md object-cover'
+                                    className='rounded-md object-fit w-full h-full'
                                 />
                             </motion.div>
                         </Link>
-                        <div className='px-0 space-y-3 md:space-y-10 md:px-10 max-w-5xl '>
+                        <div className=' space-y-3 md:space-y-10 md:px-10 max-w-5xl '>
                             <Link target={'_blank'} href={project?.projectUrl}>
                                 <div className='xl:text-2xl text-[1.1rem] md:t font-semibold text-center whitespace-nowrap capitalize'>
                                     <span className=' border-[#FA0]/60 border rounded-md p-2'>
-                                        Case Study {index + 1} of {projects?.length}:
+                                        Project {index + 1} of {projects?.length}:
                                     </span>
                                     <span className='text'>{" " + project?.title}</span>
                                 </div>
                             </Link>
 
-                            <p className='font-light text-sm md:text-base text-start md:text-left lg:max-w-3xl'>
+                            <p className='font-light h-full text-sm md:text-base text-start md:text-left lg:max-w-4xl'>
                                 {project?.summary}
                             </p>
 
