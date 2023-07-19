@@ -52,7 +52,7 @@ const Hero = ({ pageInfo }: Props) => {
         <motion.section layout='size' id='hero' className='px-10 snap-center h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden relative  '>
             <motion.div
                 whileInView={{
-                    backgroundSize: ['100% auto', '150% auto'],
+                    backgroundSize: ['100% ', '150% '],
                     opacity: 1,
                 }}
                 transition={{
