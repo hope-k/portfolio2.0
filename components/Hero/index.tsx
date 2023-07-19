@@ -50,9 +50,31 @@ const Hero = ({ pageInfo }: Props) => {
 
     return (
         <motion.section layout='size' id='hero' className='px-10 snap-center h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden relative  '>
-            <div className='heroBg'></div>
+            <motion.div
+                whileInView={{
+                    backgroundSize: ['100% auto', '150% auto'],
+                    opacity: 1,
+                }}
+                transition={{
+                    opacity: {
+                        duration: .5,
+                        ease: 'easeInOut',
+                    },
+                    backgroundSize: {
+                        delay: 1,
+                        duration: 20,
+                        ease: 'linear',
+                        repeat: Infinity,
+                        repeatType: 'mirror',
+                        repeatDelay: 0,
+                    },
+                }}
+                className='heroBg'></motion.div>
             <BackgroundCircle />
-            <motion.div layout='position' className=' h-28 w-28 relative '>
+            <motion.div
+                layout='position'
+
+                className=' h-28 w-28 relative '>
                 <LazyLoadImage
                     effect="blur"
                     width={128}

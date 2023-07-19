@@ -20,13 +20,13 @@ const Projects = ({ projects }: Props) => {
             whileInView={pageTransition.whileInView}
             viewport={{ once: true }}
             id='projects'
-            className='bg-[#f4090959] scrollbar h-screen snap-center relative flex flex-col text-left md:flex-row max-w-full justify-evenly items-center w-full'
+            className='bg-[#da3b3bba] scrollbar h-screen snap-center relative flex flex-col text-left md:flex-row max-w-full justify-evenly items-center w-full'
         >
-            <div className="z-0 w-screen absolute top-[30%] bg-[teal]/10 left-0 h-[500px] -skew-y-[12deg]"></div>
+            <div className="z-0 w-screen absolute top-[30%] bg-[teal]/20 left-0 h-[500px] -skew-y-[12deg]"></div>
             <motion.div
                 initial={comeUp.initial}
                 whileInView={comeUp.whileInView}
-                className=' absolute top-[3.5rem] xl:top-4 uppercase tracking-[20px] text-xl font-light text-teal-500'
+                className='absolute top-[3.5rem] xl:top-4 uppercase tracking-[20px] text-xl font-light text-teal-500'
             >
                 <span>Projects</span>
                 <div className='flex justify-center absolute w-full h-8 md:h-10'>
@@ -77,7 +77,7 @@ const Projects = ({ projects }: Props) => {
                                 </div>
                             </Link>
 
-                            <p className='font-light h-full text-sm md:text-base text-start md:text-left lg:max-w-4xl'>
+                            <p className='font-light h-full text-sm md:text-base text-center lg:max-w-4xl'>
                                 {project?.summary}
                             </p>
 
