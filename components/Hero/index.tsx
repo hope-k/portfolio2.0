@@ -181,7 +181,7 @@ const Hero = ({ pageInfo }: Props) => {
 
                         >
                             <motion.div
-                                variants={buttonVariant} className={` p-2 relative cursor-pointer rounded-md  mr-[2px] z-20`}>
+                                variants={buttonVariant} className={` p-2 relative cursor-pointer rounded-md  mr-[2px] z-20 bg-blend-exclusion`}>
                                 {
                                     link.svg
                                 }
