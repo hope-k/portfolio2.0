@@ -34,7 +34,7 @@ const Projects = ({ projects }: Props) => {
             whileInView={pageTransition.whileInView}
             viewport={{ once: true }}
             id='projects'
-            className='bg-[#da3b3bba] scrollbar h-screen snap-center relative flex flex-col text-left md:flex-row max-w-full justify-evenly items-center w-full'
+            className='bg-[#da3b3bba] scrollbar h-screen snap-center relative flex flex-col text-left md:flex-row max-w-full justify-evenly items-center w-full overflow-hidden'
         >
             <div className="z-0 w-screen absolute top-[30%] bg-[teal]/20 left-0 h-[500px] -skew-y-[12deg]"></div>
             <motion.div
@@ -90,7 +90,7 @@ const Projects = ({ projects }: Props) => {
                                     <span className='text'>{" " + project?.title}</span>
                                 </div>
                             </Link>
-                            <p className='font-light h-[13rem] md:h-full scroll-m-2 text-sm md:text-base text-center lg:max-w-4xl backdrop-blur-[20px] border-[0.5px] border-[#cccccc4d] bg-[rgba(25,24,24,0.3)] text-[#ccc] p-4 rounded-md overflow-y-scroll scrollbar-thumb-rounded-full scrollbar-thin scrollbar-track-yellow-100/20 scrollbar-thumb-[teal]/80 '>
+                            <p className='font-light h-[13rem] md:h-full scroll-m-2 text-sm md:text-base text-center lg:max-w-4xl backdrop-blur-[10px] border-[0.5px] border-[#cccccc4d] bg-[rgba(25,24,24,0.3)] text-[#ccc] p-4 rounded-md overflow-y-scroll scrollbar-thumb-rounded-full scrollbar-thin scrollbar-track-yellow-100/20 scrollbar-thumb-[teal]/80 '>
                                 {project?.summary}
                             </p>
                         </div>

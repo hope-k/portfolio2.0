@@ -192,7 +192,7 @@ const Hero = ({ pageInfo }: Props) => {
                                     ?
                                     <motion.div
                                         layoutId='bg-fuchsia-700 absolute left-0 bottom-0 top-0 right-0 z-10 rounded-md mr-[2px] '
-                                        className='bg-fuchsia-700 absolute left-0 bottom-0 top-0 right-0 z-10 rounded-md mr-[2px] '>
+                                        className='bg-fuchsia-700 absolute left-0 bottom-0 top-0 right-0 z-10 rounded-md mr-[2px] animate-pulse'>
 
                                     </motion.div>
                                     :
