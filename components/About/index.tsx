@@ -73,7 +73,7 @@ const About = ({ pageInfo }: Props) => {
                     />
                 </motion.div>
 
-                <div className='p-6 md:p-10 relative z-50 text-black backdrop-blur-[60px] bg-[rgba(38,37,37,0.3)] rounded-sm'>
+                <div className='p-6 md:p-10 relative z-50 text-black backdrop-blur-[15px] bg-[rgba(38,37,37,0.3)] rounded-sm'>
                     <motion.div className='mb-2 poiret tracking-wide text-2xl font-semibold whitespace-nowrap'>
                         Here is a <span className='underline decoration-[teal]'>little</span> background
                     </motion.div>
