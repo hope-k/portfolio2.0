@@ -36,11 +36,11 @@ const Projects = ({ projects }: Props) => {
             id='projects'
             className='bg-[#da3b3bba] scrollbar h-screen snap-center relative flex flex-col text-left md:flex-row max-w-full justify-evenly items-center w-full overflow-hidden'
         >
-            <div className="z-0 w-screen absolute top-[30%] bg-[teal]/20 left-0 h-[500px] -skew-y-[12deg]"></div>
+            <div className="z-0 w-full absolute top-[30%] bg-[teal]/20 left-0 h-[500px] -skew-y-[12deg]"></div>
             <motion.div
                 initial={comeUp.initial}
                 whileInView={comeUp.whileInView}
-                className='absolute left-4 top-[3.5rem] xl:top-4 uppercase md:tracking-[4rem] tracking-[1.1rem] text-lg font-light text-teal-500 flex justify-center w-full'
+                className='absolute  top-[3.5rem] xl:top-4 uppercase md:tracking-[4rem] tracking-[1.1rem] text-lg font-light text-teal-500 flex justify-center w-full'
             >
                 <span>Projects</span>
                 <div className='flex justify-center absolute w-full h-8 md:h-10 top-11'>
@@ -50,7 +50,7 @@ const Projects = ({ projects }: Props) => {
                     />
                 </div>
             </motion.div>
-            <motion.div className="tmd:top-0 scrollbar-thumb-rounded-full scrollbar-thin scrollbar-track-yellow-100/20 scrollbar-thumb-[teal]/80 relative w-full  flex overflow-x-scroll  snap-x snap-mandatory ">
+            <motion.div className="  scrollbar-thumb-rounded-full scrollbar-thin scrollbar-track-yellow-100/20 scrollbar-thumb-[teal]/80 relative   overflow-hidden max-w-full  flex  snap-x snap-mandatory ">
                 {/*`projects`*/}
                 {projects?.map((project, index) => (
                     <motion.div key={index} className='mx-auto w-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-[10px] md:p-28 h-[80%]'>
