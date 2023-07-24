@@ -1,17 +1,30 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { motion } from 'framer-motion'
 import Skill from './Skill'
 import { comeUp } from '../../animations/comeUp'
 import { pageTransition } from '../../animations/pageTransition'
 import { Skill as SkillType } from '../../typings'
-
+import { useInViewContext } from '../../hooks/currentPage'
+import { useInView } from 'react-intersection-observer'
 type Props = {
   skills: SkillType[]
 }
 
 const Skills = ({ skills }: Props) => {
+  const { selectedTab, setSelectedTab } = useInViewContext()
+  const { ref, inView } = useInView({
+    threshold: 0.3,
+  })
+ 
+  useEffect(() => {
+    if (inView) {
+      setSelectedTab(2)
+    }
+  }, [inView, setSelectedTab])
+
   return (
     <motion.section
+    ref={ref}
       initial={pageTransition.initial}
       whileInView={pageTransition.whileInView}
       id='skills'
@@ -20,7 +33,7 @@ const Skills = ({ skills }: Props) => {
       <motion.h3
         initial={comeUp.initial}
         whileInView={comeUp.whileInView}
-        className='absolute top-24 xl:top-10 uppercase tracking-[20px] text-xl font-light text-teal-500'>
+        className='absolute top-24 xl:top-10 uppercase  md:tracking-[4rem] tracking-[2rem] text-lg font-light text-teal-500 flex justify-center w-full'>
         Skills
       </motion.h3>
       <h3 className=' absolute top-36 xl:top-[4.7rem] uppercase tracking-[3px] text-gray-500 text-sm'>

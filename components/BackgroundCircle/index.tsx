@@ -10,8 +10,7 @@ const BackgroundCircle = ({ }: Props) => {
             }}
             whileInView={{
                 scale: [1, .6, .8, 1.8, 1],
-                opacity: [0.15, 0.28, 0.35, 0.34, 0.45, 1],
-                borderRadius: ['20%', '20%', '50%', '80%', '20%'],
+                opacity: [0.07, 0.12, 0.16, 0.18, 0.20, 0.22],
             }}
             transition={{
                 duration: 10,

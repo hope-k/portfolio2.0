@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { comeUp } from '../../animations/comeUp'
 import { pageTransition } from '../../animations/pageTransition'
 import { motion } from 'framer-motion'
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/solid'
 import { useForm, SubmitHandler, FieldValues } from 'react-hook-form'
 import { PageInfo } from '../../typings'
+import { useInViewContext } from '../../hooks/currentPage'
+import { useInView } from 'react-intersection-observer'
 
 type Props = {
     pageInfo: PageInfo
@@ -19,16 +21,25 @@ type Inputs = {
 }
 const Contact = ({pageInfo}: Props) => {
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
-    
+    const { selectedTab, setSelectedTab } = useInViewContext()
+    const { ref, inView } = useInView({
+        threshold: 0.3,
+    })
+
+    useEffect(() => {
+        if (inView) {
+            setSelectedTab(4)
+        }
+    }, [inView, setSelectedTab])
     const onSubmit:SubmitHandler<Inputs> = (formData) => {
         window.location.href = `mailto:${formData.email}?subject=${formData.subject}&body=${formData.message}`
     }
     return (
-        <motion.section id='contact' className=' h-screen snap-center relative flex flex-col text-center md:text-left items-center justify-evenly mx-auto max-w-7xl overflow-hidden'>
+        <motion.section ref={ref} id='contact' className=' h-screen snap-center relative flex flex-col text-center md:text-left items-center justify-center mx-auto max-w-7xl overflow-hidden'>
             <motion.h3
                 initial={comeUp.initial}
                 whileInView={comeUp.whileInView}
-                className='absolute top-10  uppercase tracking-[20px] text-xl font-light text-teal-500'
+                className='absolute top-10 uppercase md:tracking-[4rem] tracking-[1rem]  text-lg font-light text-teal-500 flex justify-center  w-full'
             >
                 Contact
             </motion.h3>
@@ -41,10 +52,10 @@ const Contact = ({pageInfo}: Props) => {
                     </span>
                 </div>
 
-                <div className='space-y-10'>
-                    <div className='flex items-center space-x-5 justify-center'>
+                <div className='space-y-10 backdrop-blur-[15px] bg-[rgba(65,63,63,0.3)] p-4 rounded border border-[#ccc6] text-[#ccc]'>
+                    <div className='flex items-center space-x-5 justify-center  '>
                         <PhoneIcon className='text-[teal] h-7 w-7 animate-pulse' />
-                        <p>{pageInfo?.phoneNumber} | {pageInfo?.alternativePhoneNumber}</p>
+                        <p className='text-sm'>{pageInfo?.phoneNumber} | {pageInfo?.alternativePhoneNumber}</p>
                     </div>
                     <div className='flex items-center space-x-5 justify-center'>
                         <EnvelopeIcon className='text-[teal] h-7 w-7 animate-pulse' />

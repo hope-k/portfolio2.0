@@ -28,9 +28,7 @@ const Layout = ({ children, title= 'Hope-K', description = 'Hope K', socials  }:
                 <main>{children}</main>
           
             </div>
-                <Link href='#hero' className="flex justify-center items-center">
-                <div className={` flex justify-center items-center fixed bottom-4 right-4 w-6 h-6 border border-teal-400 rounded-full cursor-pointer`}>^</div>
-            </Link>
+   
       
         </div>
     );
