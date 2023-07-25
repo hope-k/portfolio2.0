@@ -84,10 +84,10 @@ const Projects = ({ projects }: Props) => {
                     />
                 </div>
             </motion.div>
-            <motion.div layout className=" pb-6 scrollbar-thumb-rounded-full scrollbar-thin scrollbar-track-yellow-100/20 scrollbar-thumb-[#ccc]/80 relative h-full   overflow-hidden w-full  flex  snap-x snap-mandatory ">
+            <motion.div  className="  scrollbar-thumb-rounded-full scrollbar-thin scrollbar-track-yellow-100/20 scrollbar-thumb-[#ccc]/80 relative h-fit   overflow-hidden w-full  flex  snap-x snap-mandatory ">
                 {/*`projects`*/}
                 {projects?.map((project, index) => (
-                    <motion.div  key={index} className='mx-auto overflow-hidden w-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center py-[10px] px-[5px] md:p-28 h-full'>
+                    <motion.div key={index} className='overflow-hidden w-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center py-[10px] px-[5px] md:p-28 h-full'>
                         {/*image*/}
 
                         <Link target={'_blank'} href={project?.projectUrl}>
@@ -111,7 +111,7 @@ const Projects = ({ projects }: Props) => {
                                     }
                                 }}
                                 viewport={{ once: false }}
-                                className=' relative w-[270px] h-[143px] lg:h-[230px] lg:w-[460px] mt-[10rem] md:mt-[5rem] rounded-md '>
+                                className=' relative w-[270px] h-[143px] lg:h-[230px] lg:w-[460px] mt-[4rem] md:mt-[5rem] rounded-md '>
                                 <Image
                                     src={urlFor(project?.image)}
                                     alt={project?.title}
