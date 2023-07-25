@@ -129,7 +129,7 @@ const About = ({ pageInfo }: Props) => {
                     />
                 </motion.div>
 
-                <div className=' relative z-50 h-[60%] w-full md:w-1/2 py-1'>
+                <div className=' relative z-50 h-[60%] w-full md:w-1/2 '>
                     <AnimatePresence>
                         <motion.div
                             variants={buttonExpand}
