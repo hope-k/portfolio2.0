@@ -37,6 +37,7 @@ interface Project extends SanityBody {
     summary: string;
     image: Image;
     projectUrl: string;
+    githubUrl: string;
     technologies: Skill[];
 }
 

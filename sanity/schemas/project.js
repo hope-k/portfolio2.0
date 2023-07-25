@@ -37,6 +37,12 @@ export default {
       title: 'Project Url',
       type: 'url',
 
+    },    
+    {
+      name: 'githubUrl',
+      title: 'Github Url',
+      type: 'url',
+
     },
 
 
