@@ -161,7 +161,7 @@ const About = ({ pageInfo }: Props) => {
                                         duration: .8
                                     }
                                 }
-                                className='text-base  xl:text-[1.2rem] tracking-tighter leading-6 max-w-xl text-left font-light '>
+                                className='text-sm  xl:text-[1.2rem] tracking-tighter leading-6 max-w-xl text-left font-light '>
                                 {pageInfo?.backgroundInfo}
                             </motion.p>
                         </motion.div>
