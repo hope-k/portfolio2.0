@@ -79,7 +79,7 @@ const Projects = ({ projects }: Props) => {
                 className='absolute  top-[3.5rem] xl:top-4 uppercase md:tracking-[4rem] tracking-[1.1rem] text-lg font-light text-teal-500 flex justify-center w-full'
             >
                 <span>Projects</span>
-                <div className='flex justify-center absolute w-full h-20 top-9'>
+                <div className='flex justify-center absolute w-full h-20 top-7'>
                     <Lottie
                         animationData={mouseScroll}
                         className=''
