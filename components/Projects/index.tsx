@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { motion } from 'framer-motion'
+import React, { useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { comeUp } from '../../animations/comeUp'
 import { pageTransition } from '../../animations/pageTransition'
 import Image from 'next/image'
@@ -17,6 +17,38 @@ type Props = {
 
 const Projects = ({ projects }: Props) => {
     const { selectedTab, setSelectedTab } = useInViewContext()
+    const [detailOpenIndex, setDetailOpenIndex] = useState(-1)
+    const buttonExpand = {
+        initial: {
+            width: '10rem',
+            
+        },
+        show: {
+            width: '100%',
+
+        },
+        exit: {
+            width: '10rem',
+        }
+    }
+     const detailAnimation = {
+        initial: {
+            opacity: 0,
+            maxHeight: 0,
+
+        },
+        show: {
+            opacity: 1,
+            maxHeight: '20rem',
+        },
+        exit: {
+            opacity: 0,
+            maxHeight: 0,
+
+        }
+
+    }
+
     const { ref, inView } = useInView({
         threshold: 0.3,
     })
@@ -30,14 +62,16 @@ const Projects = ({ projects }: Props) => {
     return (
         <motion.section
             ref={ref}
+            
             initial={pageTransition.initial}
             whileInView={pageTransition.whileInView}
             viewport={{ once: true }}
             id='projects'
-            className='bg-[#da3b3bba] scrollbar h-screen snap-center relative flex flex-col text-left md:flex-row max-w-full justify-evenly items-center w-full overflow-hidden'
+            className='bg-[#48b9bba0] scrollbar h-screen snap-center relative flex flex-col text-left md:flex-row max-w-full justify-evenly items-center w-full overflow-hidden'
         >
-            <div className="z-0 w-full absolute top-[30%] bg-[teal]/20 left-0 h-[500px] -skew-y-[12deg]"></div>
+            <div className="z-0 w-full absolute top-[30%] bg-[#cccccc40] left-0 h-[500px] -skew-y-[12deg]"></div>
             <motion.div
+                
                 initial={comeUp.initial}
                 whileInView={comeUp.whileInView}
                 className='absolute  top-[3.5rem] xl:top-4 uppercase md:tracking-[4rem] tracking-[1.1rem] text-lg font-light text-teal-500 flex justify-center w-full'
@@ -50,14 +84,16 @@ const Projects = ({ projects }: Props) => {
                     />
                 </div>
             </motion.div>
-            <motion.div className=" pb-6 scrollbar-thumb-rounded-full scrollbar-thin scrollbar-track-yellow-100/20 scrollbar-thumb-[teal]/80 relative h-full   overflow-hidden w-full  flex  snap-x snap-mandatory ">
+            <motion.div layout className=" pb-6 scrollbar-thumb-rounded-full scrollbar-thin scrollbar-track-yellow-100/20 scrollbar-thumb-[#ccc]/80 relative h-full   overflow-hidden w-full  flex  snap-x snap-mandatory ">
                 {/*`projects`*/}
                 {projects?.map((project, index) => (
-                    <motion.div key={index} className='mx-auto overflow-hidden w-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center py-[10px] px-[5px] md:p-28 h-full'>
+                    <motion.div  key={index} className='mx-auto overflow-hidden w-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center py-[10px] px-[5px] md:p-28 h-full'>
                         {/*image*/}
+
                         <Link target={'_blank'} href={project?.projectUrl}>
 
                             <motion.div
+                                layout
                                 initial={{
                                     y: -60,
                                     opacity: 0
@@ -66,8 +102,11 @@ const Projects = ({ projects }: Props) => {
                                     y: 0,
                                     opacity: 1,
                                     transition: {
-                                        duration: 1.8,
+                                        duration: 1,
                                         type: 'spring',
+                                        stiffness: 320,
+                                        damping: 90,
+                                        mass: 1,
 
                                     }
                                 }}
@@ -81,19 +120,57 @@ const Projects = ({ projects }: Props) => {
                                 />
                             </motion.div>
                         </Link>
-                        <div className='md:space-y-10 md:px-10 md:max-w-5xl  '>
-                            <Link target={'_blank'} href={project?.projectUrl}>
-                                <div className='xl:text-2xl text-[1.1rem]  font-semibold text-center whitespace-nowrap capitalize'>
-                                    <span className=' border-[#FA0]/60 border rounded-md p-2'>
-                                        Project {index + 1} of {projects?.length}:
-                                    </span>
-                                    <span className='text'>{" " + project?.title}</span>
-                                </div>
-                            </Link>
-                            <p className='font-light w-full h-[25rem] relative top-12 md:top-0   md:h-full  text-sm md:text-base text-center lg:max-w-4xl  backdrop-blur-[10px] border-[0.5px] border-[#cccccc4d] bg-[rgba(25,24,24,0.3)] text-[#ccc] p-4 rounded-md overflow-y-scroll scrollbar-thumb-rounded-full scrollbar-thin scrollbar-track-yellow-100/20 scrollbar-thumb-[teal]/80 m-auto'>
-                                {project?.summary}
-                            </p>
-                        </div>
+                        <motion.div  className='w-full flex justify-center flex-col lg:max-w-4xl '>
+                            <motion.div  
+                                variants={buttonExpand}
+                                key={index}
+                                initial={'initial'}
+                                animate={detailOpenIndex == index ? 'show' : 'initial'}
+                                exit={'exit'}
+                                transition={{
+                                    duration: .3,
+                                    type: 'spring',
+                                    stiffness: 120,
+                                    damping: 20,
+                                    mass: 0.2,
+
+
+
+                                }}
+                            onClick={
+                                () => {
+                                    if (detailOpenIndex == index) {
+                                        setDetailOpenIndex(-1)
+                                    } else {
+                                        setDetailOpenIndex(index)
+                                    }
+                                }
+                            } className='text-sm mx-auto cursor-pointer max-w-full w-[10rem]  text-center  rounded bg-white text-black py-2 border-b-2  flex justify-between border-red-500'>
+                                <span className='tracking-widest w-full h-full text-center'>{" " + project?.title}</span>
+                            </motion.div>
+                            <AnimatePresence>
+                                <motion.p
+                                    variants={detailAnimation}
+                                    key={index}
+                                    initial={'initial'}
+                                    animate={detailOpenIndex == index ? 'show' : 'initial'}
+                                    exit={'exit'}
+                                    transition={{
+                                        duration: .5,
+                                        type: 'spring',
+                                        stiffness: 120,
+                                        damping: 20,
+                                        mass: 0.2,
+                                        delay: .2,
+
+                                        
+
+                                    }}
+                                    className='font-light w-full max-h-[20rem]  relative top-0  text-sm md:text-base text-center backdrop-blur-[4px] border-[0.5px] border-[#cccccc4d] bg-[rgba(25,24,24,0.3)] text-[#ccc] p-4 rounded-md overflow-y-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-track-yellow-100/20 scrollbar-thumb-[teal]/80 m-auto md:overflow-hidden'>
+                                    {project?.summary}
+                                </motion.p>
+                            </AnimatePresence>
+                        </motion.div>
                     </motion.div>
                 ))
                 }
