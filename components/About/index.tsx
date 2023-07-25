@@ -57,7 +57,7 @@ const About = ({ pageInfo }: Props) => {
                 stiffness: 120,
                 damping: 20,
                 mass: 0.2,
-                delay: .28,
+                delay: .3,
 
 
 
@@ -149,7 +149,19 @@ const About = ({ pageInfo }: Props) => {
                             <motion.div className='mb-2 poiret tracking-wide text-2xl font-semibold whitespace-nowrap'>
                                 Here is a <span className='underline decoration-[teal]'>little</span> background
                             </motion.div>
-                            <motion.p className='text-sm  xl:text-[1.2rem] tracking-tighter leading-6 max-w-xl text-left font-light '>
+                            <motion.p
+                                initial={{
+                                    y: -70
+                                }}
+                                whileInView={{
+                                    y: 0
+                                }}
+                                transition={
+                                    {
+                                        duration: .8
+                                    }
+                                }
+                                className='text-base  xl:text-[1.2rem] tracking-tighter leading-6 max-w-xl text-left font-light '>
                                 {pageInfo?.backgroundInfo}
                             </motion.p>
                         </motion.div>

@@ -15,19 +15,22 @@ const Skill = ({ directionLeft, skill }: Props) => {
 
             <motion.div
                 initial={{
-                    x: (directionLeft) ? -30 : 30,
+                    x: (directionLeft) ? -50 : 50,
                     opacity: 0
                 }}
                 transition={{
-                    duration: 1.8,
+                    duration: .5,
                     type: 'spring',
+                    stiffness: 120,
+                    damping: 20,
+                    mass: 0.2,
                 }}
                 whileInView={{
                     x: 0,
                     opacity: 1,
                 }}
                 exit={{
-                    x: directionLeft ? 30 : -30,
+                    x: directionLeft ? 50 : -50,
                     opacity: 0,
                     transition: {
                         duration: .1

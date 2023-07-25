@@ -161,6 +161,7 @@ const Hero = ({ pageInfo }: Props) => {
                             staggerChildren: 0.15,
                             duration: 1.8,
                             type: 'spring',
+                            
 
                         }
                     }
