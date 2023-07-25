@@ -29,7 +29,7 @@ const Skills = ({ skills }: Props) => {
       whileInView={pageTransition.whileInView}
       id='skills'
       layout='position'
-      className='bg-sky-500/50 snap-center xl:space-y-0 mx-auto items-center justify-center min-h-screen flex relative flex-col text-center md:text-left xl:flex-row overflow-hidden px-10 flex-shrink-0'>
+      className='bg-sky-700/60 snap-center xl:space-y-0 mx-auto items-center justify-center min-h-screen flex relative flex-col text-center md:text-left xl:flex-row overflow-hidden px-10 flex-shrink-0'>
       <motion.h3
         initial={comeUp.initial}
         whileInView={comeUp.whileInView}
