@@ -36,7 +36,6 @@ const Skill = ({ directionLeft, skill }: Props) => {
                         duration: .1
                     }
                 }}
-                layout='position'
                 className='group rounded-full  p-1 border border-gray-500 w-16 h-16 xl:w-[5.3rem] xl:h-[5.3rem] flex relative cursor-pointer z-10  overflow-hidden items-center justify-center'
             >
                 <Image
