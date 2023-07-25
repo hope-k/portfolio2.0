@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react'
-import { motion, useTransform, useScroll, } from 'framer-motion'
+import React, { useEffect } from 'react'
+import { motion, useTransform, useScroll, AnimatePresence, } from 'framer-motion'
 import Image from 'next/image'
 import { comeUp } from '../../animations/comeUp'
 import { pageTransition } from '../../animations/pageTransition'
@@ -7,7 +7,7 @@ import { PageInfo } from '../../typings'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { urlFor } from '../../sanity'
-import {useInViewContext} from '../../hooks/currentPage'
+import { useInViewContext } from '../../hooks/currentPage'
 import { useInView } from 'react-intersection-observer'
 type Props = {
     pageInfo: PageInfo
@@ -15,16 +15,72 @@ type Props = {
 
 const About = ({ pageInfo }: Props) => {
     const { selectedTab, setSelectedTab } = useInViewContext()
-    const {ref, inView }= useInView({
+    const { ref, inView } = useInView({
         threshold: 0.3,
 
     })
+    const buttonExpand = {
+        initial: {
+            width: '0rem',
+
+        },
+        show: {
+            width: '100%',
+            transition: {
+                duration: .35,
+                type: 'spring',
+                stiffness: 120,
+                damping: 20,
+                mass: 0.2,
+            }
+
+        },
+        exit: {
+            width: '10rem',
+            transition: {
+                duration: .1
+            }
+        }
+    }
+    const detailAnimation = {
+        initial: {
+            opacity: 0,
+            maxHeight: 0,
+
+        },
+        show: {
+            opacity: 1,
+            maxHeight: '100%',
+            transition: {
+                duration: .5,
+                type: 'spring',
+                stiffness: 120,
+                damping: 20,
+                mass: 0.2,
+                delay: .28,
+
+
+
+
+            }
+
+        },
+        exit: {
+            opacity: 0,
+            maxHeight: 0,
+            transition: {
+                duration: .1
+            }
+
+        }
+
+    }
     useEffect(() => {
         if (inView) {
             setSelectedTab(1)
         }
     }, [inView, setSelectedTab])
-  
+
     return (
         <>
             <motion.section
@@ -32,7 +88,7 @@ const About = ({ pageInfo }: Props) => {
                 whileInView={pageTransition.whileInView}
                 id='about'
                 ref={ref}
-                className='bg-[#dccb92] w-full snap-center items-center justify-evenly px-10 md:flex-row  h-screen flex flex-col relative text-center md:text-left'
+                className='bg-[#dccb92] w-full snap-center items-center justify-evenly px-3 msx-auto md:flex-row  h-screen flex flex-col relative text-center md:text-left'
             >
                 <div className='aboutBg'></div>
                 <motion.h3
@@ -73,13 +129,32 @@ const About = ({ pageInfo }: Props) => {
                     />
                 </motion.div>
 
-                <div className='p-6 md:p-10 relative z-50 text-black backdrop-blur-[4px] bg-[rgba(38,37,37,0.3)] rounded-sm'>
-                    <motion.div className='mb-2 poiret tracking-wide text-2xl font-semibold whitespace-nowrap'>
-                        Here is a <span className='underline decoration-[teal]'>little</span> background
-                    </motion.div>
-                    <motion.p className='text-sm xl:text-[1.2rem] tracking-tighter leading-6 max-w-xl text-left font-light '>
-                        {pageInfo?.backgroundInfo}
-                    </motion.p>
+                <div className=' relative z-50 h-[60%] w-full md:w-1/2 py-1'>
+                    <AnimatePresence>
+                        <motion.div
+                            variants={buttonExpand}
+                            whileInView={'show'}
+                            initial='initial'
+                            className='bg-[#6e1e9969] h-4 rounded w-full absolute top-0 left-0 backdrop-blur-[4px]'>
+                        </motion.div>
+
+                        <motion.div
+                            variants={detailAnimation}
+                            whileInView={'show'}
+                            initial='initial'
+                            exit={'exit'}
+
+
+                            className='text-black backdrop-blur-[4px] bg-[rgba(38,37,37,0.3)] rounded p-6 md:p-10 w-full '>
+                            <motion.div className='mb-2 poiret tracking-wide text-2xl font-semibold whitespace-nowrap'>
+                                Here is a <span className='underline decoration-[teal]'>little</span> background
+                            </motion.div>
+                            <motion.p className='text-sm  xl:text-[1.2rem] tracking-tighter leading-6 max-w-xl text-left font-light '>
+                                {pageInfo?.backgroundInfo}
+                            </motion.p>
+                        </motion.div>
+                    </AnimatePresence>
+
                 </div>
 
             </motion.section>
