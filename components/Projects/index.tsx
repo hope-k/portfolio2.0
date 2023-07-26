@@ -78,6 +78,9 @@ const Projects = ({ projects }: Props) => {
 
                 initial={comeUp.initial}
                 whileInView={comeUp.whileInView}
+                viewport={{
+                    once: true
+                }}
                 className='absolute  top-[3.5rem] xl:top-4 uppercase md:tracking-[4rem] tracking-[1.1rem] text-lg font-light text-teal-500 flex justify-center w-full'
             >
                 <span>Projects</span>

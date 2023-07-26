@@ -39,6 +39,9 @@ const Contact = ({ pageInfo }: Props) => {
             <motion.h3
                 initial={comeUp.initial}
                 whileInView={comeUp.whileInView}
+                viewport={{
+                    once: true
+                }}
                 className='absolute top-10 uppercase md:tracking-[4rem] tracking-[1rem] text-xs font-light text-teal-500 flex justify-center  w-full'
             >
                 Contact
