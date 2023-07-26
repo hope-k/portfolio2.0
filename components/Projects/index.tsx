@@ -171,7 +171,7 @@ const Projects = ({ projects }: Props) => {
                                                 className='absolute left-2 flex'
                                             >
                                                 <Link
-                                                    href={'https://google.com'}
+                                                    href={project?.projectUrl}
                                                     target='_blank'
                                                     className='bg-gray-200 rounded-full duration-500 ease-in transition-all p-1 h-full hover:bg-black '
                                                 >
@@ -193,7 +193,7 @@ const Projects = ({ projects }: Props) => {
                                                 }}
                                                 className='absolute right-2'
                                             >
-                                                <Link className=' flex items-center  p-1' href={'https://google.com'} target='_blank'>
+                                                <Link className=' flex items-center  p-1' href={project?.githubUrl} target='_blank'>
                                                     <svg fill="#000000" className='w-6 h-6' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 
                                                         <g data-name="Layer 2">
