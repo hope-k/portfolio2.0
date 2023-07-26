@@ -71,9 +71,9 @@ const Projects = ({ projects }: Props) => {
             id='projects'
             className='bg-[#48b9bba0]  scrollbar h-screen snap-center relative flex flex-col text-left md:flex-row max-w-full justify-evenly items-center w-full overflow-y-hidden'
         >
-            <div className="z-0 absolute top-[30%] bg-black/10 left-0 md:h-[500px] md:w-[500px] md:rounded-2xl "></div>
-            <div className="z-0 absolute top-[30%] bg-black/10 right-0 md:h-[500px] md:w-[500px] md:rounded-2xl "></div>
-            <div className="z-0 absolute top-[30%] bg-black/10 bottom-0 md:h-[500px] md:w-[500px] md:rounded-2xl  "></div>
+            <div className="z-0 absolute top-[30%] bg-black/10 left-0 md:h-[500px] md:w-[500px] md:rounded-2xl animate-pulse"></div>
+            <div className="z-0 absolute top-[30%] bg-black/10 right-0 md:h-[500px] md:w-[500px] md:rounded-2xl animate-pulse"></div>
+            <div className="z-0 absolute top-[30%] bg-black/10 bottom-0 md:h-[500px] md:w-[500px] md:rounded-2xl  animate-pulse"></div>
             <motion.div
 
                 initial={comeUp.initial}

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { comeUp } from '../../animations/comeUp'
 import { pageTransition } from '../../animations/pageTransition'
 import { motion } from 'framer-motion'
@@ -19,7 +19,7 @@ type Inputs = {
     message: string
 
 }
-const Contact = ({pageInfo}: Props) => {
+const Contact = ({ pageInfo }: Props) => {
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
     const { selectedTab, setSelectedTab } = useInViewContext()
     const { ref, inView } = useInView({
@@ -31,15 +31,15 @@ const Contact = ({pageInfo}: Props) => {
             setSelectedTab(4)
         }
     }, [inView, setSelectedTab])
-    const onSubmit:SubmitHandler<Inputs> = (formData) => {
-        window.location.href = `mailto:${formData.email}?subject=${formData.subject}&body=${formData.message}`
+    const onSubmit: SubmitHandler<Inputs> = (formData) => {
+        window.location.href = `mailto:${'hopekumordzie@gmail.com'}?subject=${formData.subject}&body=${formData.message + ' ' + ' - ' + formData.email}`
     }
     return (
-        <motion.section ref={ref} id='contact' className=' h-screen snap-center relative flex flex-col text-center md:text-left items-center justify-center mx-auto max-w-7xl overflow-hidden'>
+        <motion.section ref={ref} id='contact' className='bg-[#1f2725] w-full h-screen snap-center relative flex flex-col text-center md:text-left items-center justify-center mx-auto  overflow-hidden'>
             <motion.h3
                 initial={comeUp.initial}
                 whileInView={comeUp.whileInView}
-                className='absolute top-10 uppercase md:tracking-[4rem] tracking-[1rem]  text-lg font-light text-teal-500 flex justify-center  w-full'
+                className='absolute top-10 uppercase md:tracking-[4rem] tracking-[1rem] text-xs font-light text-teal-500 flex justify-center  w-full'
             >
                 Contact
             </motion.h3>
@@ -52,19 +52,30 @@ const Contact = ({pageInfo}: Props) => {
                     </span>
                 </div>
 
-                <div className='space-y-10 backdrop-blur-[15px] bg-[rgba(65,63,63,0.3)] p-4 rounded border border-[#ccc6] text-[#ccc]'>
-                    <div className='flex items-center space-x-5 justify-center  '>
-                        <PhoneIcon className='text-[teal] h-7 w-7 animate-pulse' />
-                        <p className='text-sm'>{pageInfo?.phoneNumber} | {pageInfo?.alternativePhoneNumber}</p>
+                <div className='space-y-10 backdrop-blur-[5px] border-l-4 bg-[#cccccc0a] pl-4 border-teal-900/75 py-2  rounded-md '>
+                    <div className='flex items-center space-x-5 justify-start  relative '>
+                        <PhoneIcon className='text-[black] h-11 w-11 animate-pulse bg-gray-100/10 p-2 rounded-lg' />
+                        <div className='space-y-1 text-justify'> 
+                            <span className='capitalize text-sm font-semibold text-[#ccc] '>phone</span>
+                            <p className='text-sm font-medium text-gray-500'>{pageInfo?.phoneNumber} </p>
+                        </div>
                     </div>
-                    <div className='flex items-center space-x-5 justify-center'>
-                        <EnvelopeIcon className='text-[teal] h-7 w-7 animate-pulse' />
-                        <p>{pageInfo?.email}</p>
+                    <div className='flex items-center space-x-5 justify-start  relative'>
+                        <EnvelopeIcon className='text-[black] h-11 w-11 animate-pulse bg-gray-100/10 p-2 rounded-lg' />
+                        <div className='space-y-1 text-justify'>
+                            <span className='capitalize text-sm font-semibold  text-[#ccc] '>email</span>
+                            <p className='text-sm font-medium text-gray-500'>{pageInfo?.email} </p>
+                        </div>
                     </div>
-                    <div className='flex items-center space-x-5 justify-center'>
-                        <MapPinIcon className='text-[teal] h-7 w-7 animate-pulse' />
-                        <p>{pageInfo?.address}</p>
+                    <div className='flex items-center space-x-5 justify-start  relative'>
+                        <MapPinIcon className='text-[black] h-11 w-11 animate-pulse bg-gray-100/10 p-2 rounded-lg' />
+                        <div className='space-y-1 text-justify'>
+                            <span className='capitalize text-sm font-semibold text-[#ccc] '>Location</span>
+                            <p className='text-sm font-medium text-gray-500'>{pageInfo?.address} </p>
+                        </div>
                     </div>
+
+          
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-2 w-fit mx-auto '>
