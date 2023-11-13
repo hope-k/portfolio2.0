@@ -105,7 +105,7 @@ const Hero = ({ pageInfo }: Props) => {
 
 
     return (
-        <motion.section ref={ref} layout='size' id='home' className='px-10 snap-center h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden relative  '>
+        <motion.section ref={ref} id='home' className='px-10 snap-center h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden relative  '>
             <motion.div
                 whileInView={{
                     backgroundSize: ['100% ', '150% '],
@@ -141,14 +141,14 @@ const Hero = ({ pageInfo }: Props) => {
                     className='rounded-full mx-auto'
                 />
             </motion.div>
-            <motion.h2 layout className='z-20 relative font-light text-sm uppercase text-gray-500 pb-2 tracking-[12px] md:tracking-[14px] px-5 whitespace-nowrap'>
+            <motion.h2 layout='position' className='z-20 relative font-light text-sm uppercase text-gray-500 pb-2 tracking-[12px] md:tracking-[14px] px-5 whitespace-nowrap'>
                 {pageInfo?.role}
             </motion.h2>
 
             <motion.div layout='position' className='z-20 relative'>
                 <motion.div className='text-5xl lg:text-6xl font-semibold px-10 text-left '>
                     <motion.span className='mr-3 '>{text}</motion.span>
-                    <Cursor cursorColor='teal' />
+                    <Cursor cursorColor='purple' />
                 </motion.div>
             </motion.div>
 
@@ -169,7 +169,6 @@ const Hero = ({ pageInfo }: Props) => {
                 initial='hidden'
                 whileInView='show'
                 exit='exit'
-                layout='position'
                 className={`p-[3px] fixed  ${selectedTab == 0 ? 'top-0' : selectedTab == 2 ? 'md:top-16 top-0' : selectedTab == 4  ? 'bottom-10' : selectedTab == 3 ? '-top-6' :'md:top-4 top-12'} z-[100]  backdrop-blur-[4px] bg-[rgba(38,37,37,0.3)] flex flex-row border-[0.0001px] border-[#cccccc42] rounded-md`}
             >
                 {
