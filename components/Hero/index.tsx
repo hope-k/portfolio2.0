@@ -177,7 +177,7 @@ const Hero = ({ pageInfo }: Props) => {
                 initial='hidden'
                 whileInView='show'
                 exit='exit'
-                className={`p-[2px] fixed  ${selectedTab == 0 ? 'top-6' : selectedTab == 2 ? 'md:top-18 top-12' : selectedTab == 5 ? 'bottom-8' : selectedTab == 3 ? '-top-6' : 'md:top-4 top-12'} z-[100]  backdrop-blur-[4px] bg-[rgba(38,37,37,0.3)] flex flex-row border-[0.0001px] border-[#cccccc42] rounded-md`}
+                className={` fixed top-0 flex justify-start items-start w-fit ${selectedTab == 0 ? 'top-6' : selectedTab == 2 ? 'md:top-18 top-12' : selectedTab == 5 ? 'bottom-8' : selectedTab == 3 ? '-top-6' : 'md:top-4 top-12'} z-[100]  backdrop-blur-[4px] bg-[rgba(38,37,37,0.3)] flex flex-row border-[0.0001px] border-[#cccccc42] rounded-md`}
             >
                 {
                     links.map((link, i) => (
