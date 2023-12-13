@@ -164,7 +164,6 @@ const About = ({ pageInfo }: Props) => {
                             {pageInfo?.backgroundInfo}
                         </motion.p>
                     </motion.div>
-
                 </div>
 
             </motion.section>
