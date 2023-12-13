@@ -149,7 +149,7 @@ const Hero = ({ pageInfo }: Props) => {
                     className='rounded-full mx-auto'
                 />
             </motion.div>
-            <motion.h2 layout='position' className='z-20 relative font-light text-sm uppercase  text-gray-500 pb-2 tracking-[12px] md:tracking-[14px] px-5 whitespace-nowrap'>
+            <motion.h2 layout='position' className='z-20 relative font-light text-sm uppercase text-gray-500 pb-2 tracking-[12px] md:tracking-[14px] px-5 whitespace-nowrap'>
                 {pageInfo?.role}
             </motion.h2>
 
@@ -177,7 +177,7 @@ const Hero = ({ pageInfo }: Props) => {
                 initial='hidden'
                 whileInView='show'
                 exit='exit'
-                className={`p-[3px] fixed  ${selectedTab == 0 ? 'top-6' : selectedTab == 2 ? 'md:top-18 top-12' : selectedTab == 5 ? 'bottom-8 md:bottom-5' : selectedTab == 3 ? '-top-6' : 'md:top-4 top-12'} z-[100]  backdrop-blur-[4px] bg-[rgba(38,37,37,0.3)] flex flex-row border-[0.0001px] border-[#cccccc42] rounded-md`}
+                className={`p-[2px] fixed  ${selectedTab == 0 ? 'top-6' : selectedTab == 2 ? 'md:top-18 top-12' : selectedTab == 5 ? 'bottom-8' : selectedTab == 3 ? '-top-6' : 'md:top-4 top-12'} z-[100]  backdrop-blur-[4px] bg-[rgba(38,37,37,0.3)] flex flex-row border-[0.0001px] border-[#cccccc42] rounded-md`}
             >
                 {
                     links.map((link, i) => (
@@ -199,7 +199,7 @@ const Hero = ({ pageInfo }: Props) => {
                                 i == selectedTab
                                     ?
                                     <motion.div
-                                        layoutId='bg-fuchsia-700  '
+                                        layoutId='bg-fuchsia-700 absolute left-0 bottom-0 top-0 right-0 z-10 rounded-md mr-[2px] animate-pulse '
                                         className='bg-fuchsia-700 absolute left-0 bottom-0 top-0 right-0 z-10 rounded-md mr-[2px] animate-pulse'>
 
                                     </motion.div>
