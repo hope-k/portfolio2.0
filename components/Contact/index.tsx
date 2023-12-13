@@ -28,7 +28,7 @@ const Contact = ({ pageInfo }: Props) => {
 
     useEffect(() => {
         if (inView) {
-            setSelectedTab(4)
+            setSelectedTab(5)
         }
     }, [inView, setSelectedTab])
     const onSubmit: SubmitHandler<Inputs> = (formData) => {

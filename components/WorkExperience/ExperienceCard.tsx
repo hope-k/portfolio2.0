@@ -3,69 +3,129 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Experience } from '../../typings'
 import { urlFor } from '../../sanity'
+import StepperAnimation from '../Stepper'
+
+
+
+
 type Props = {
     exp: Experience
 }
 
 const ExperienceCard = ({ exp }: Props) => {
+    const techVariants = {
+        hidden: {
+            opacity: 0,
+            translateX: -10
+        },
+        show: {
+            opacity: 1,
+            translateX: 0,
+            transition: {
+                duration: 1,
+                type: 'spring',
+                stiffness: 120,
+                damping: 20,
+                mass: 0.2,
+            }
+   
+
+        },
+        exit: {
+            opacity: 0,
+            translateX: -30,
+
+        }
+
+
+    }
     return (
-        <article className='duration-400 transition-all justify-center opacity-40 hover:opacity-100 bg-[#292929] p-10 snap-center flex flex-col rounded-xl xl:rounded-lg items-center space-y-7 flex-shrink-0 w-[450px] md:w-[600px] xl:w-[900px]'>
-            <motion.div
-                initial={{
-                    opacity: 0,
-                    y: -50
-                }}
-                whileInView={{
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                        duration: 1,
-                        type: 'spring',
-                    },
-
-                }}
-                viewport={{ once: true }}
-
-
-                className='h-28 w-28 relative'>
-                <Image
-                    src={urlFor(exp?.companyImage)}
-                    alt='Company Logo'
-                    fill
-                    className='rounded-full xl:w-[200px] xl:h-[200px] object-cover'
-                />
-            </motion.div>
+        <article className=' overflow-hidden text-[#ccc] w-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center py-[10px] px-[5px] md:p-28 h-full'>
             <div className='px-0 md:px-10'>
                 <h4 className='text-2xl font-light'>{exp?.jobTitle}</h4>
                 <p className='font-bold mt-1'>{exp?.companyName}</p>
-                <div className='flex space-x-2 my-2'>
+                <motion.div
+                    variants={{
+                        show: {
+                            opacity: 1,
+                            transition: {
+                                staggerChildren: .2,
+                                type: 'spring',
+                                stiffness: 120,
+                                damping: 20,
+                                mass: 0.2,
+
+
+                            }
+                        }
+                    }}
+                    initial='hidden'
+                    whileInView='show'
+                    exit='exit'
+                    className='flex space-x-2 my-2'>
                     {/* tech */}
                     {exp?.technologies?.map((tech, i) => (
-                        <div key={i} className='relative h-10 w-10'>
+                        <motion.div variants={techVariants} key={i} className='relative h-10 w-10 rounded-full'>
                             <Image
                                 src={urlFor(tech?.image)}
                                 alt='typescript'
                                 fill
                                 className='rounded-full object-cover'
                             />
-                        </div>
+                        </motion.div>
 
                     ))}
 
-                </div>
-                <div className='uppercase py-5 text-gray-300'>
-                    {new Date(exp?.dateStarted).toDateString()}
-                    -
-                    {
-                        exp?.isCurrent ? 'Present' : new Date(exp?.dateEnded).toDateString()
-                    }
-                </div>
-                <ul className='list-disc space-y-4 ml-5 text-sm'>
-                    {exp?.points?.map((point, i) => (
-                        <li key={i}>{point}</li>
-                    ))}
+                </motion.div>
+                <div className='relative pl-4'>
+                    <div className='absolute left-0 py-6 flex flex-col justify-center items-center space-y-2 '>
+                        <motion.div
+                            initial={{
+                                opacity: 0,
 
-                </ul>
+                            }}
+                            
+                            whileInView={{
+                                opacity: 1,
+
+
+                            }}
+                            transition={{
+                                delay: 2.45,
+                                ease: 'circOut',
+                            }}
+                            className=' bg-yellow-500 h-3 w-2 rounded-lg animate-pulse shadow-yellow-700 circle '>
+
+                        </motion.div>
+                        <motion.div
+                            initial={{
+                                scaleY: 0,
+
+                            }}
+                            whileInView={{
+                                scaleY: 1,
+                                transition: {
+                                    duration: 1.4,
+                                    ease: 'circOut',
+                                }
+                            }}
+                            className='w-[2px] rounded md:h-[10rem] h-[40vh]  bg-gray-300/80'>
+
+                        </motion.div>
+
+
+                    </div>
+                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }} className='capitalize py-5 text-gray-300 text-sm'>
+                        {new Date(exp?.dateStarted).getFullYear()}
+                        <span className='mx-1'>-</span>
+                        {
+                            exp?.isCurrent ? 'Present' : new Date(exp?.dateEnded).getFullYear()
+                        }
+                    </motion.div>
+                    <div className=' space-y-4 ml-5 text-sm md:max-w-[50vw]'>
+                        {exp?.description}
+                    </div>
+                </div>
             </div>
 
         </article>

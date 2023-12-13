@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Skill } from '../../typings';
 import { urlFor } from '../../sanity';
+import { useInViewContext } from '../../hooks/currentPage'
+import { useInView } from 'react-intersection-observer'
+
 
 type Props = {
     directionLeft?: boolean;
@@ -10,10 +13,20 @@ type Props = {
 }
 
 const Skill = ({ directionLeft, skill }: Props) => {
+    const { selectedTab, setSelectedTab } = useInViewContext()
+    const { ref, inView } = useInView({
+        threshold: 0.3,
+    })
+    useEffect(() => {
+        if (inView) {
+            setSelectedTab(3)
+        }
+    }, [inView, setSelectedTab])
     return (
         <>
 
             <motion.div
+                ref={ref}
                 initial={{
                     x: (directionLeft) ? -50 : 50,
                     opacity: 0

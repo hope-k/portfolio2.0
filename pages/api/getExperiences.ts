@@ -3,10 +3,12 @@ import { groq } from 'next-sanity'
 import { sanityClient } from '../../sanity'
 import { Experience } from '../../typings'
 
+//sort by date created
 const query = groq`
-    *[_type == "experience"]{
+    *[_type == "experience"]|order(_createdAt asc){
         ...,
         technologies[]->
+    
     }
 `
 

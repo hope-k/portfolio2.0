@@ -56,7 +56,7 @@ export interface Experience extends SanityBody {
     dateEnded: string
     technologies: Skill[]
     jobTitle: string;
-    points: string[];
+    description: string;
     
 
 

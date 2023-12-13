@@ -4,7 +4,7 @@ import { comeUp } from '../../animations/comeUp'
 import { pageTransition } from '../../animations/pageTransition'
 import Image from 'next/image'
 import mouseScroll from '../../animations/lottie/mouseScroll.json';
-import Lottie from 'lottie-react'
+import Lottie from 'react-lottie'
 import { Project } from '../../typings'
 import { urlFor } from '../../sanity'
 import Link from 'next/link'
@@ -57,9 +57,17 @@ const Projects = ({ projects }: Props) => {
 
     useEffect(() => {
         if (inView) {
-            setSelectedTab(3)
+            setSelectedTab(4)
         }
     }, [inView, setSelectedTab])
+    const slowedDownOptions = {
+        loop: true,
+        animationData: mouseScroll,
+        autoplay: true,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice',
+        },
+    };
 
     return (
         <motion.section
@@ -74,6 +82,14 @@ const Projects = ({ projects }: Props) => {
             <div className="z-0 absolute top-[30%] bg-black/10 left-0 md:h-[500px] md:w-[500px] md:rounded-2xl animate-pulse"></div>
             <div className="z-0 absolute top-[30%] bg-black/10 right-0 md:h-[500px] md:w-[500px] md:rounded-2xl animate-pulse"></div>
             <div className="z-0 absolute top-[30%] bg-black/10 bottom-0 md:h-[500px] md:w-[500px] md:rounded-2xl  animate-pulse"></div>
+                <div className='flex justify-center absolute w-14 h-20 top-0'>
+                    <Lottie
+                        options={slowedDownOptions}
+                        speed={0.5}
+
+
+                    />
+                </div>
             <motion.div
 
                 initial={comeUp.initial}
@@ -84,12 +100,6 @@ const Projects = ({ projects }: Props) => {
                 className='absolute  top-[3.5rem] xl:top-4 uppercase md:tracking-[4rem] tracking-[1.1rem] text-lg font-light text-teal-500 flex justify-center w-full'
             >
                 <span>Projects</span>
-                <div className='flex justify-center absolute w-full h-20 top-7'>
-                    <Lottie
-                        animationData={mouseScroll}
-                        className=''
-                    />
-                </div>
             </motion.div>
             <motion.div className="  scrollbar-thumb-rounded-full scrollbar-thin scrollbar-track-yellow-100/20 scrollbar-thumb-[#ccc]/80 relative h-fit  w-full  flex  snap-x snap-mandatory ">
                 {/*`projects`*/}
@@ -226,7 +236,7 @@ const Projects = ({ projects }: Props) => {
 
 
                                     }}
-                                    className='font-light w-full max-h-[20rem]  relative top-0  text-sm md:text-base text-center backdrop-blur-[4px] border-[0.5px] border-[#cccccc4d] bg-[rgba(25,24,24,0.3)] text-[#ccc] p-4 rounded-md overflow-y-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-track-yellow-100/20 scrollbar-thumb-[teal]/80 m-auto md:overflow-hidden'>
+                                    className='font-light w-full max-h-[20rem]  relative top-0  text-sm md:text-base text-center backdrop-blur-[4px] border-[0.5px] border-[#cccccc4d] bg-[rgba(25,24,24,0.3)] text-[#fefefe] p-4 rounded-md overflow-y-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-track-yellow-100/20 scrollbar-thumb-[teal]/80 m-auto md:overflow-hidden'>
                                     {project?.summary}
 
                                 </motion.p>

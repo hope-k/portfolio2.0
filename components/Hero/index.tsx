@@ -26,7 +26,7 @@ const Hero = ({ pageInfo }: Props) => {
             setSelectedTab(0)
         }
     }, [inView, setSelectedTab])
-  
+
     //check if url is #about using router 
     const links = [
         {
@@ -44,6 +44,14 @@ const Hero = ({ pageInfo }: Props) => {
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                 </svg>
             )
+        },
+        {
+            name: 'experience', svg: (
+                <svg className='peer-hover:stroke-white stroke-[#ccc] h-[1.2em] w-[1.2em]' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V4l-8 4-8-4v8c0 6 8 10 8 10z" />
+                </svg>
+            )
+
         },
         {
             name: 'skills', svg: (
@@ -71,7 +79,7 @@ const Hero = ({ pageInfo }: Props) => {
 
 
     const [text, count] = useTypewriter({
-        words: [`Hi My Name Is ${pageInfo?.name}`, 'Fullstack Developer.tsx', "Frontend Developer.jsx", 'Backend Developer.js', 'Mobile Developer.dart'],
+        words: [`Hi My Name Is ${pageInfo?.name}`, 'Fullstack Developer.tsx', "Frontend Developer.jsx", 'Backend Developer.js'],
         loop: true,
         delaySpeed: 2000,
     })
@@ -110,7 +118,7 @@ const Hero = ({ pageInfo }: Props) => {
                 whileInView={{
                     backgroundSize: ['100% ', '150% '],
                     opacity: 1,
-                    
+
                 }}
                 transition={{
                     opacity: {
@@ -130,7 +138,7 @@ const Hero = ({ pageInfo }: Props) => {
             <BackgroundCircle />
             <motion.div
                 layout='position'
-                
+
                 className=' h-28 w-28 relative '>
                 <LazyLoadImage
                     effect="blur"
@@ -141,18 +149,18 @@ const Hero = ({ pageInfo }: Props) => {
                     className='rounded-full mx-auto'
                 />
             </motion.div>
-            <motion.h2 layout='position' className='z-20 relative font-light text-sm uppercase text-gray-500 pb-2 tracking-[12px] md:tracking-[14px] px-5 whitespace-nowrap'>
+            <motion.h2 layout='position' className='z-20 relative font-light text-sm uppercase  text-gray-500 pb-2 tracking-[12px] md:tracking-[14px] px-5 whitespace-nowrap'>
                 {pageInfo?.role}
             </motion.h2>
 
             <motion.div layout='position' className='z-20 relative'>
-                <motion.div className='text-5xl lg:text-6xl font-semibold px-10 text-left '>
+                <motion.div className='text-5xl lg:text-6xl font-semibold px-10 text-left text-[#ccc]'>
                     <motion.span className='mr-3 '>{text}</motion.span>
                     <Cursor cursorColor='purple' />
                 </motion.div>
             </motion.div>
 
-
+            {/* NAVIGATION */}
             <motion.div
                 variants={{
                     show: {
@@ -161,7 +169,7 @@ const Hero = ({ pageInfo }: Props) => {
                             staggerChildren: 0.15,
                             duration: 1.8,
                             type: 'spring',
-                            
+
 
                         }
                     }
@@ -169,7 +177,7 @@ const Hero = ({ pageInfo }: Props) => {
                 initial='hidden'
                 whileInView='show'
                 exit='exit'
-                className={`p-[3px] fixed  ${selectedTab == 0 ? 'top-0' : selectedTab == 2 ? 'md:top-16 top-0' : selectedTab == 4  ? 'bottom-10' : selectedTab == 3 ? '-top-6' :'md:top-4 top-12'} z-[100]  backdrop-blur-[4px] bg-[rgba(38,37,37,0.3)] flex flex-row border-[0.0001px] border-[#cccccc42] rounded-md`}
+                className={`p-[3px] fixed  ${selectedTab == 0 ? 'top-6' : selectedTab == 2 ? 'md:top-18 top-12' : selectedTab == 5 ? 'bottom-8 md:bottom-5' : selectedTab == 3 ? '-top-6' : 'md:top-4 top-12'} z-[100]  backdrop-blur-[4px] bg-[rgba(38,37,37,0.3)] flex flex-row border-[0.0001px] border-[#cccccc42] rounded-md`}
             >
                 {
                     links.map((link, i) => (
@@ -181,7 +189,7 @@ const Hero = ({ pageInfo }: Props) => {
 
                         >
                             <motion.div
-                                variants={buttonVariant} className={` p-2 relative cursor-pointer rounded-md  mr-[2px] z-20 bg-blend-exclusion`}>
+                                variants={buttonVariant} className={` p-4 relative cursor-pointer rounded-md  mr-[2px] z-20 bg-blend-exclusion`}>
                                 {
                                     link.svg
                                 }
@@ -191,7 +199,7 @@ const Hero = ({ pageInfo }: Props) => {
                                 i == selectedTab
                                     ?
                                     <motion.div
-                                        layoutId='bg-fuchsia-700 absolute left-0 bottom-0 top-0 right-0 z-10 rounded-md mr-[2px] '
+                                        layoutId='bg-fuchsia-700  '
                                         className='bg-fuchsia-700 absolute left-0 bottom-0 top-0 right-0 z-10 rounded-md mr-[2px] animate-pulse'>
 
                                     </motion.div>

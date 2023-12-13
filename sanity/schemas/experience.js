@@ -18,7 +18,7 @@ export default {
     }, {
       name: 'companyName',
       title: 'CompanyName',
-      type: 'text',
+      type: 'string',
     }, {
       name: 'dateStarted',
       title: 'DateStarted',
@@ -41,13 +41,12 @@ export default {
       of: [{ type: 'reference', to: { type: 'skill' } }]
 
     }, {
-      name: 'points',
-      title: 'Points',
-      type: 'array',
-      of: [{ type: 'string' }]
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      
 
     },
-
 
   ],
 

@@ -88,13 +88,13 @@ const About = ({ pageInfo }: Props) => {
                 whileInView={pageTransition.whileInView}
                 id='about'
                 ref={ref}
-                className='bg-[#dccb92] w-full snap-center items-center justify-evenly px-3 msx-auto md:flex-row  h-screen flex flex-col relative text-center md:text-left'
+                className='bg-gray-900 w-full snap-center items-center justify-evenly px-3 msx-auto md:flex-row  h-screen flex flex-col relative text-center md:text-left'
             >
                 <div className='aboutBg'></div>
                 <motion.h3
                     initial={comeUp.initial}
                     whileInView={comeUp.whileInView}
-                    className='text-teal-500 absolute xl:top-24 top-[3rem] uppercase tracking-[2rem] md:tracking-[4rem] text-lg font-light '
+                    className='text-teal-500 absolute xl:top-24 top-[3rem] uppercase tracking-[1rem] md:tracking-[3rem] text-lg font-light '
                 >
                     About
                 </motion.h3>
@@ -130,42 +130,40 @@ const About = ({ pageInfo }: Props) => {
                 </motion.div>
 
                 <div className=' relative z-50 h-[60%] w-full md:w-1/2 '>
-                    <AnimatePresence>
-                        <motion.div
-                            variants={buttonExpand}
-                            whileInView={'show'}
-                            initial='initial'
-                            className='bg-[#6e1e9969] h-4 rounded w-full absolute top-0 left-0 backdrop-blur-[4px]'>
+                    <motion.div
+                        variants={buttonExpand}
+                        whileInView={'show'}
+                        initial='initial'
+                        className='bg-[#6e1e9969] h-4 rounded w-full absolute top-0 left-0 backdrop-blur-[4px]'>
+                    </motion.div>
+
+                    <motion.div
+                        variants={detailAnimation}
+                        whileInView={'show'}
+                        initial='initial'
+                        exit={'exit'}
+
+
+                        className='text-black backdrop-blur-[4px] bg-[rgba(54,53,53,0.3)] rounded p-6 md:p-10 w-full '>
+                        <motion.div className='mb-2 text-gray-200 poiret tracking-wide text-2xl font-semibold whitespace-nowrap'>
+                            Here is a <span className='underline decoration-[teal]'>little</span> background
                         </motion.div>
-
-                        <motion.div
-                            variants={detailAnimation}
-                            whileInView={'show'}
-                            initial='initial'
-                            exit={'exit'}
-
-
-                            className='text-black backdrop-blur-[4px] bg-[rgba(38,37,37,0.3)] rounded p-6 md:p-10 w-full '>
-                            <motion.div className='mb-2 poiret tracking-wide text-2xl font-semibold whitespace-nowrap'>
-                                Here is a <span className='underline decoration-[teal]'>little</span> background
-                            </motion.div>
-                            <motion.p
-                                initial={{
-                                    y: -70
-                                }}
-                                whileInView={{
-                                    y: 0
-                                }}
-                                transition={
-                                    {
-                                        duration: .8
-                                    }
+                        <motion.p
+                            initial={{
+                                y: -30
+                            }}
+                            whileInView={{
+                                y: 0
+                            }}
+                            transition={
+                                {
+                                    duration: .55
                                 }
-                                className='text-sm  xl:text-[1.2rem] tracking-tighter leading-6 max-w-xl text-left font-light '>
-                                {pageInfo?.backgroundInfo}
-                            </motion.p>
-                        </motion.div>
-                    </AnimatePresence>
+                            }
+                            className='text-sm text-[#ccc]  xl:text-[1.2rem]  max-w-xl text-left font-light '>
+                            {pageInfo?.backgroundInfo}
+                        </motion.p>
+                    </motion.div>
 
                 </div>
 
