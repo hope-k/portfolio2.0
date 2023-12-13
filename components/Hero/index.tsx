@@ -161,57 +161,60 @@ const Hero = ({ pageInfo }: Props) => {
             </motion.div>
 
             {/* NAVIGATION */}
-            <motion.div
-                variants={{
-                    show: {
-                        opacity: 1,
-                        transition: {
-                            staggerChildren: 0.15,
-                            duration: 1.8,
-                            type: 'spring',
+            <div className={`fixed flex justify-center w-full flex-row  z-[100] ${selectedTab == 0 ? 'top-6' : selectedTab == 2 ? 'md:top-18 top-12' : selectedTab == 5 ? 'bottom-8' : selectedTab == 3 ? '-top-6' : 'md:top-4 top-12'}` }>
+                <motion.div
+                    variants={{
+                        show: {
+                            opacity: 1,
+                            transition: {
+                                staggerChildren: 0.15,
+                                duration: 1.8,
+                                type: 'spring',
 
 
-                        }
-                    }
-                }}
-                initial='hidden'
-                whileInView='show'
-                exit='exit'
-                className={` fixed top-0 flex justify-start items-start w-fit ${selectedTab == 0 ? 'top-6' : selectedTab == 2 ? 'md:top-18 top-12' : selectedTab == 5 ? 'bottom-8' : selectedTab == 3 ? '-top-6' : 'md:top-4 top-12'} z-[100]  backdrop-blur-[4px] bg-[rgba(38,37,37,0.3)] flex flex-row border-[0.0001px] border-[#cccccc42] rounded-md`}
-            >
-                {
-                    links.map((link, i) => (
-                        <Link
-                            href={`/#${link.name}`}
-                            key={i}
-                            className='relative'
-                            onClick={() => setSelectedTab(i)}
-
-                        >
-                            <motion.div
-                                variants={buttonVariant} className={` p-4 relative cursor-pointer rounded-md  mr-[2px] z-20 bg-blend-exclusion`}>
-                                {
-                                    link.svg
-                                }
-
-                            </motion.div>
-                            {
-                                i == selectedTab
-                                    ?
-                                    <motion.div
-                                        layoutId='bg-fuchsia-700 absolute left-0 bottom-0 top-0 right-0 z-10 rounded-md mr-[2px] animate-pulse '
-                                        className='bg-fuchsia-700 absolute left-0 bottom-0 top-0 right-0 z-10 rounded-md mr-[2px] animate-pulse'>
-
-                                    </motion.div>
-                                    :
-                                    null
                             }
-                        </Link>
+                        }
+                    }}
+                    initial='hidden'
+                    whileInView='show'
+                    exit='exit'
+                    className={`   h-fit w-fit  flex flex-row  backdrop-blur-[4px] bg-[rgba(38,37,37,0.3)] border-[0.0001px] border-[#cccccc42] rounded-md`}
+                >
+                    {
+                        links.map((link, i) => (
+                            <Link
+                                href={`/#${link.name}`}
+                                key={i}
+                                className='relative'
+                                onClick={() => setSelectedTab(i)}
 
-                    ))
-                }
+                            >
+                                <motion.div
+                                    variants={buttonVariant} className={` p-4 relative cursor-pointer rounded-md  mr-[2px] z-20 bg-blend-exclusion`}>
+                                    {
+                                        link.svg
+                                    }
 
-            </motion.div>
+                                </motion.div>
+                                {
+                                    i == selectedTab
+                                        ?
+                                        <motion.div
+                                            layoutId='bg-fuchsia-700 absolute left-0 bottom-0 top-0 right-0 z-10 rounded-md mr-[2px] animate-pulse '
+                                            className='bg-fuchsia-700 absolute left-0 bottom-0 top-0 right-0 z-10 rounded-md mr-[2px] animate-pulse'>
+
+                                        </motion.div>
+                                        :
+                                        null
+                                }
+                            </Link>
+
+                        ))
+                    }
+
+                </motion.div>
+
+            </div>
 
         </motion.section>
     )
