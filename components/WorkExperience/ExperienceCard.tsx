@@ -43,7 +43,7 @@ const ExperienceCard = ({ exp }: Props) => {
         <article className=' overflow-hidden text-[#ccc] w-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center py-[10px] px-[5px] md:p-28 h-full'>
             <div className='px-0 md:px-10'>
                 <h4 className='text-2xl font-light'>{exp?.jobTitle}</h4>
-                <p className='font-bold mt-1'>{exp?.companyName}</p>
+                <p className='font-semibold text-sm mb-2 mt-1'>{exp?.companyName}</p>
                 <motion.div
                     variants={{
                         show: {
@@ -78,7 +78,7 @@ const ExperienceCard = ({ exp }: Props) => {
 
                 </motion.div>
                 <div className='relative pl-4'>
-                    <div className='absolute left-0 py-6 flex flex-col justify-center items-center space-y-2 '>
+                    <div className='absolute left-0 py-[23px] flex flex-col justify-center items-center space-y-2 '>
                         <motion.div
                             initial={{
                                 opacity: 0,
@@ -115,7 +115,7 @@ const ExperienceCard = ({ exp }: Props) => {
 
 
                     </div>
-                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }} className='capitalize py-5 text-gray-300 text-sm'>
+                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }} className='capitalize py-5 text-gray-300 text-xs font-bold'>
                         {new Date(exp?.dateStarted).getFullYear()}
                         <span className='mx-1'>-</span>
                         {

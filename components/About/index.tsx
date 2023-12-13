@@ -94,7 +94,7 @@ const About = ({ pageInfo }: Props) => {
                 <motion.h3
                     initial={comeUp.initial}
                     whileInView={comeUp.whileInView}
-                    className='text-teal-500 absolute xl:top-24 top-[3rem] uppercase tracking-[1rem] md:tracking-[3rem] text-lg font-light '
+                    className='text-teal-500 absolute xl:top-24 top-[3rem] uppercase tracking-[1rem] md:tracking-[2rem] text-lg font-light '
                 >
                     About
                 </motion.h3>
@@ -160,7 +160,7 @@ const About = ({ pageInfo }: Props) => {
                                     duration: .55
                                 }
                             }
-                            className='text-sm text-[#ccc]  xl:text-[1.2rem]  max-w-xl text-left font-light '>
+                            className='text-[15px] text-[#ccc]   max-w-xl text-left font-normal '>
                             {pageInfo?.backgroundInfo}
                         </motion.p>
                     </motion.div>
