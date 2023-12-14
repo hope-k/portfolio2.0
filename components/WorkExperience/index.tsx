@@ -60,7 +60,7 @@ const WorkExperience = ({ experiences }: Props) => {
                 {/*experience cards*/}
                 {
                     experiences?.map((exp, index) => (
-                        <ExperienceCard key={index} exp={exp} />
+                        <ExperienceCard index={index} length={experiences?.length} key={index} exp={exp} />
                     ))
                 }
 

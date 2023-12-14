@@ -106,6 +106,9 @@ const Projects = ({ projects }: Props) => {
                 {projects?.map((project, index) => (
                     <motion.div key={index} className=' overflow-hidden  w-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center py-[10px] px-[5px] md:p-28 h-full'>
                         {/*image*/}
+                        <div className='text-lg text-[#3d989a55] font-bold text-ellipsis '>
+                            {index + 1} / {projects.length}
+                        </div>
 
                         <Link target={'_blank'} href={project?.projectUrl}>
 

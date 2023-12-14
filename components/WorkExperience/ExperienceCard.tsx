@@ -9,10 +9,12 @@ import StepperAnimation from '../Stepper'
 
 
 type Props = {
-    exp: Experience
+    exp: Experience,
+    index: number,
+    length: number
 }
 
-const ExperienceCard = ({ exp }: Props) => {
+const ExperienceCard = ({ exp, index, length }: Props) => {
     const techVariants = {
         hidden: {
             opacity: 0,
@@ -42,6 +44,7 @@ const ExperienceCard = ({ exp }: Props) => {
     return (
         <article className=' overflow-hidden text-[#ccc] w-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center py-[10px] px-[5px] md:p-28 h-full'>
             <div className='px-0 md:px-10'>
+                <h1 className='text-gray-700'>{index + 1} / {length}</h1>
                 <h4 className='text-2xl font-light'>{exp?.jobTitle}</h4>
                 <p className='font-semibold text-sm mb-2 mt-1'>{exp?.companyName}</p>
                 <motion.div
