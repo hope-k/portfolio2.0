@@ -1,7 +1,6 @@
 import Head from "next/head";
 import dynamic from 'next/dynamic'
 import { Social } from "../typings";
-import Link from "next/link";
 import React, {useState, useEffect} from 'react'
 
 const Header = dynamic(() => import("./Header/index"), { ssr: false }) 

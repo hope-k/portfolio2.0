@@ -136,6 +136,7 @@ const Projects = ({ projects }: Props) => {
                                     src={urlFor(project?.image)}
                                     alt={project?.title}
                                     fill
+                                    loading='eager'
                                     className='rounded-md object-fit w-full h-full'
                                 />
                             </motion.div>

@@ -11,7 +11,6 @@ import { fetchSkills } from '../utils/fetchSkills'
 import { fetchSocials } from '../utils/fetchSocials'
 import { fetchExperiences } from '../utils/fetchExperience'
 import { fetchPageInfo } from '../utils/fetchPageInfo'
-import Link from 'next/link'
 import React, {useState, useEffect} from 'react'
 import WorkExperience from '../components/WorkExperience'
 
@@ -40,8 +39,6 @@ const Home = ({ pageInfo, experiences, projects, socials, skills }: Props) => {
         <Skills skills={skills} />
         <Projects projects={projects} />
         <Contact pageInfo={pageInfo} />
-
-     
       </Layout>
     </div>
   )
